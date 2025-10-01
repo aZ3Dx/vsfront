@@ -42,7 +42,7 @@ export const BlogsCarousel = ({ blogs }: BlogsCarouselProps) => {
               <h3 className="mb-4 text-xl font-bold">{blog.data.title}</h3>
               <p className="mb-2">{blog.data.description}</p>
               <Button
-                href={`/blog/${blog.slug}`}
+                href={`/blogs/${blog.slug}`}
                 type="anchor"
                 text="Leer más"
                 style="secondary-simple"
