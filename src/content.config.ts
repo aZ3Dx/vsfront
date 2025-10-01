@@ -1,7 +1,7 @@
 import { defineCollection, z } from 'astro:content';
-import { glob, file } from 'astro/loaders';
 
 const blogs = defineCollection({
+  type: 'content',
   schema: z.object({
     title: z.string(),
     category: z.string(),

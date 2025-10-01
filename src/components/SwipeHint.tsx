@@ -19,9 +19,9 @@ export const SwipeHint = () => {
       defaults: { ease: 'power2.inOut', duration: 0.6 },
     });
 
-    tl.fromTo(hintRef.current, { autoAlpha: 0, x: 0 }, { autoAlpha: 1, x: 40 })
-      .to(hintRef.current, { x: -20 })
-      .to(hintRef.current, { autoAlpha: 0, x: 0, duration: 0.4 }, '+=0.2');
+    tl.fromTo(hintRef.current, { autoAlpha: 0, x: 0 }, { autoAlpha: 1, x: -40 })
+      .to(hintRef.current, { x: -80 })
+      .to(hintRef.current, { autoAlpha: 0, x: 0, duration: 0.4 });
 
     return () => {
       tl.kill();

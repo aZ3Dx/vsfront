@@ -1,8 +1,8 @@
 ---
+import { Image } from 'astro:assets';
 import { SERVICES } from '@/consts/services';
 import Layout from '@/layouts/Layout.astro';
-import type { GetStaticPaths, InferGetStaticPropsType } from 'astro';
-import { Image } from 'astro:assets';
+import type { GetStaticPaths } from 'astro';
 
 export const getStaticPaths = (async () => {
   return SERVICES.map((service) => ({

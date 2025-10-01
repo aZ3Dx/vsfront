@@ -1,8 +1,8 @@
 ---
+import { Image } from 'astro:assets';
 import { COMMENTS } from '@/consts/comments';
 import IconBorderCornerSquare from '@/assets/icons/IconBorderCornerSquare.svg';
 import SVGCheck from '@/assets/svgs/Check.svg';
-import { Image } from 'astro:assets';
 import IconQuote from '@/assets/icons/IconQuote.svg';
 ---
 
@@ -22,7 +22,7 @@ import IconQuote from '@/assets/icons/IconQuote.svg';
       <h2 class="mb-18 text-center text-2xl font-bold">LO QUE DICEN NUESTROS CLIENTES</h2>
       <ul class="flex flex-col gap-14">
         {
-          COMMENTS.map((comment) => (
+          COMMENTS.map((comment, index) => (
             <li>
               <div class="mb-2 flex flex-col items-center gap-2">
                 <Image
@@ -46,6 +46,10 @@ import IconQuote from '@/assets/icons/IconQuote.svg';
                 <IconQuote
                   stroke-width={2}
                   class="absolute right-2 bottom-2 inline-block h-4 w-4"
+                />
+                <SVGCheck
+                  stroke-width={3}
+                  class={`absolute -top-3 -right-3 h-10 w-10 ${index % 2 === 0 ? 'rotate-15' : '-rotate-15'}`}
                 />
               </div>
               {/* <SVGCheck stroke-width={2} /> */}
