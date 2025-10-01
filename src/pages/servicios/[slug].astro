@@ -1,0 +1,23 @@
+---
+import { SERVICES } from '@/consts/services';
+import Layout from '@/layouts/Layout.astro';
+import type { GetStaticPaths, InferGetStaticPropsType } from 'astro';
+import { Image } from 'astro:assets';
+
+export const getStaticPaths = (async () => {
+  return SERVICES.map((service) => ({
+    params: { slug: service.slug },
+    props: { service },
+  }));
+}) satisfies GetStaticPaths;
+
+const { service } = Astro.props;
+---
+
+<Layout>
+  <main class="bg-midnight pt-32 text-6xl text-white">
+    <h1>{service.name}</h1>
+    <Image src={service.image} alt={service.name} />
+    <p class="text-lg">{service.description}</p>
+  </main>
+</Layout>

@@ -1,0 +1,98 @@
+---
+import Image from 'astro/components/Image.astro';
+import LogoFull from '@/assets/images/LogoFullRounded.png';
+import LogoMin from '@/assets/images/LogoMinRounded.png';
+import IconMenu2 from '@/assets/icons/IconMenu2.svg';
+import IconArrowBarLeft from '@/assets/icons/IconArrowBarLeft.svg';
+---
+
+<header class="fixed z-20 flex h-18 w-full items-center">
+  <div
+    class="header relative box-content flex w-full items-center justify-center border-b border-transparent py-3 text-white transition-all duration-300"
+  >
+    <div class="menu-button absolute left-4">
+      <IconMenu2 stroke-width={2} class="text-inherit" />
+    </div>
+    <div>
+      <Image src={LogoMin} width={50} height={50} alt="Logo" />
+    </div>
+    <span class="inline-block pl-2 font-heading text-xl font-semibold text-inherit">
+      Visual Studio
+    </span>
+  </div>
+  <!-- Menu Mobile -->
+  <nav class="menu-mobile fixed top-0 left-0 hidden h-lvh w-3/4 bg-beige1">
+    <IconArrowBarLeft class="close-menu-mobile absolute top-4 left-4" />
+    <ul
+      class="links-container flex h-full flex-col items-center justify-center gap-2 px-10 tracking-wider uppercase"
+    >
+      <li><a href="/">Inicio</a></li>
+      <li><a href="/servicios">Servicios</a></li>
+      <li><a href="/portafolio">Portafolio</a></li>
+      <li><a href="/blog">Blog</a></li>
+      <li><a href="/sobre-nosotros">Sobre Nosotros</a></li>
+      <li><a href="/contactanos">Contáctanos</a></li>
+    </ul>
+    <div class="absolute bottom-4 left-1/2 -translate-x-1/2 transform">
+      <Image src={LogoFull} width={70} height={70} alt="Logo" />
+    </div>
+    <div class="close-area absolute top-0 right-0 h-full w-1/3 translate-x-full bg-midnight/70">
+    </div>
+  </nav>
+</header>
+
+<script>
+  import { gsap } from 'gsap';
+
+  const $menuButton = document.querySelector('.menu-button') as HTMLButtonElement;
+  const $menuMobile = document.querySelector('.menu-mobile') as HTMLDivElement;
+  const $closeMenuButton = document.querySelector('.close-menu-mobile') as HTMLDivElement;
+  const $closeArea = document.querySelector('.close-area') as HTMLDivElement;
+  const $header = document.querySelector('.header') as HTMLElement;
+  const $linksContainer = document.querySelector('.links-container') as HTMLUListElement;
+
+  $menuButton.addEventListener('click', () => {
+    $menuMobile.classList.remove('hidden');
+
+    const tl = gsap.timeline();
+
+    tl.fromTo($menuMobile, { x: '-100%' }, { x: '0%', duration: 0.4, ease: 'power3.out' });
+
+    tl.fromTo(
+      $linksContainer.querySelectorAll('li'),
+      { x: -20, opacity: 0 },
+      {
+        x: 0,
+        opacity: 1,
+        duration: 0.4,
+        ease: 'power2.out',
+        stagger: 0.1,
+      },
+      '-=0.1',
+    );
+  });
+
+  function closeMenu() {
+    gsap.to($menuMobile, {
+      x: '-100%',
+      duration: 0.4,
+      ease: 'power3.in',
+      onComplete: () => {
+        $menuMobile.classList.add('hidden');
+        gsap.set($linksContainer.querySelectorAll('li'), { opacity: 0 });
+      },
+    });
+  }
+
+  [$closeMenuButton, $closeArea].forEach((el) => {
+    el.addEventListener('click', closeMenu);
+  });
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      $header.classList.add('header-scrolled');
+    } else {
+      $header.classList.remove('header-scrolled');
+    }
+  });
+</script>

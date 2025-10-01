@@ -1,0 +1,64 @@
+---
+import { COMMENTS } from '@/consts/comments';
+import IconBorderCornerSquare from '@/assets/icons/IconBorderCornerSquare.svg';
+import SVGCheck from '@/assets/svgs/Check.svg';
+import { Image } from 'astro:assets';
+import IconQuote from '@/assets/icons/IconQuote.svg';
+---
+
+<section class="mb-4">
+  <div class="relative">
+    <IconBorderCornerSquare stroke-width={4} class="absolute top-2 left-2 text-beige2" />
+    <IconBorderCornerSquare stroke-width={4} class="absolute top-2 right-2 rotate-90 text-beige2" />
+    <IconBorderCornerSquare
+      stroke-width={4}
+      class="absolute right-2 bottom-2 rotate-180 text-beige2"
+    />
+    <IconBorderCornerSquare
+      stroke-width={4}
+      class="absolute bottom-2 left-2 rotate-270 text-beige2"
+    />
+    <div class="px-4 py-20">
+      <h2 class="mb-18 text-center text-2xl font-bold">LO QUE DICEN NUESTROS CLIENTES</h2>
+      <ul class="flex flex-col gap-14">
+        {
+          COMMENTS.map((comment) => (
+            <li>
+              <div class="mb-2 flex flex-col items-center gap-2">
+                <Image
+                  class="rounded-lg"
+                  src={comment.userPhoto}
+                  width={50}
+                  height={50}
+                  alt={comment.userName}
+                />
+                <div class="flex flex-col items-center">
+                  <span class="text-lg leading-5 font-bold">{comment.userName}</span>
+                  <span class="leading-5">{comment.userInfo}</span>
+                </div>
+              </div>
+              <div class="relative rounded-lg border-2 border-beige2 bg-white p-4 text-lg italic">
+                <IconQuote
+                  stroke-width={2}
+                  class="above absolute top-2 left-2 inline-block h-4 w-4 rotate-180"
+                />
+                <p class="text-center font-light text-balance">{comment.comment}</p>
+                <IconQuote
+                  stroke-width={2}
+                  class="absolute right-2 bottom-2 inline-block h-4 w-4"
+                />
+              </div>
+              {/* <SVGCheck stroke-width={2} /> */}
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</section>
+
+<style>
+  section {
+    background-image: url("data:image/svg+xml,<svg id='patternId' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><defs><pattern id='a' patternUnits='userSpaceOnUse' width='40' height='40' patternTransform='scale(2) rotate(0)'><rect x='0' y='0' width='100%' height='100%' fill='%23fefefeff'/><path d='M40 45a5 5 0 110-10 5 5 0 010 10zM0 45a5 5 0 110-10 5 5 0 010 10zM0 5A5 5 0 110-5 5 5 0 010 5zm40 0a5 5 0 110-10 5 5 0 010 10z'  stroke-width='1' stroke='%23FFF7EDff' fill='none'/><path d='M20 25a5 5 0 110-10 5 5 0 010 10z'  stroke-width='1' stroke='%23FFF7EDff' fill='none'/></pattern></defs><rect width='800%' height='800%' transform='translate(0,0)' fill='url(%23a)'/></svg>");
+  }
+</style>

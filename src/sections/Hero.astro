@@ -1,0 +1,100 @@
+---
+import { Image } from 'astro:assets';
+import HeroImage from '@/assets/images/Hero.png';
+import Button from '@/components/Button.astro';
+---
+
+<section class="relative flex h-screen min-h-[500px] flex-col justify-center pt-32 pb-24">
+  <Image
+    class="absolute inset-0 -z-10 h-full w-full object-cover"
+    src={HeroImage}
+    alt="Hero"
+    loading="eager"
+  />
+  <div class="gradient absolute right-0 bottom-0 left-0 h-24"></div>
+  <div class="flex flex-col items-center gap-6 px-4">
+    <h1 class="hero-title text-center text-2xl font-semibold text-white uppercase">
+      Contenido audiovisual diseñado para vender, emocionar y destacar
+    </h1>
+    <p class="hero-paragraph text-center text-xl text-white">
+      En <span class="font-semibold">Visual Studio</span> convertimos ideas en experiencias audiovisuales
+      memorables, creando contenido que conecta con tu público, emociona y deja huella.
+    </p>
+    <div class="hero-button">
+      <Button
+        text="Descubre nuestro portafolio"
+        type="anchor"
+        href="/portafolio"
+        style="secondary"
+      />
+    </div>
+  </div>
+</section>
+
+<style scoped>
+  .gradient {
+    background-image: linear-gradient(
+      to top,
+      rgba(250, 238, 224, 1) 0%,
+      rgba(250, 238, 224, 0.3) 50%,
+      rgba(250, 238, 224, 0.15) 65%,
+      rgba(250, 238, 224, 0.075) 75.5%,
+      rgba(250, 238, 224, 0.037) 82.85%,
+      rgba(250, 238, 224, 0.019) 88%,
+      rgba(250, 238, 224, 0) 100%
+    );
+  }
+  .hero-title,
+  .hero-paragraph,
+  .hero-button {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  .gradient {
+    transform: translateY(100px);
+  }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const tl = gsap.timeline();
+
+    tl.to('.gradient', {
+      y: 0,
+      duration: 0.5,
+      ease: 'power2.out',
+    })
+      .to(
+        '.hero-title',
+        {
+          y: 0,
+          autoAlpha: 1,
+          duration: 1,
+          ease: 'power3.out',
+        },
+        '-=0.2',
+      )
+      .to(
+        '.hero-paragraph',
+        {
+          y: 0,
+          autoAlpha: 1,
+          duration: 1,
+          ease: 'power3.out',
+        },
+        '-=0.5',
+      )
+      .to(
+        '.hero-button',
+        {
+          y: 0,
+          autoAlpha: 1,
+          duration: 1,
+          ease: 'power3.out',
+        },
+        '-=0.5',
+      );
+  });
+</script>

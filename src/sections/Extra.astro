@@ -1,0 +1,89 @@
+---
+import Button from '@/components/Button.astro';
+import Conocenos1 from '@/assets/images/extras/Conocenos1.png';
+import Conocenos2 from '@/assets/images/extras/Conocenos2.png';
+import Contactanos1 from '@/assets/images/extras/Contactanos1.png';
+import Contactanos2 from '@/assets/images/extras/Contactanos2.png';
+import { Image } from 'astro:assets';
+---
+
+<section>
+  <div class="grid grid-cols-1 grid-rows-2">
+    <div class="conocenos-block relative flex flex-col items-center gap-6 px-2 py-10">
+      <Image
+        class="fade-image absolute inset-0 -z-20 h-full w-full object-cover"
+        src={Conocenos1}
+        alt="Placeholder"
+      />
+      <Image
+        class="fade-image absolute inset-0 -z-20 h-full w-full object-cover"
+        src={Conocenos2}
+        alt="Placeholder"
+      />
+      <div class="absolute inset-0 -z-10 bg-midnight/70"></div>
+      <h3 class="text-center text-2xl font-semibold text-white">
+        Más que imágenes, creamos experiencias
+      </h3>
+      <p class="text-center text-balance text-white">
+        Conoce nuestra visión, valores y el talento detrás de cada producción.
+      </p>
+      <Button
+        class="mt-auto"
+        text="Conócenos"
+        type="anchor"
+        href="/sobre-nosotros"
+        style="secondary"
+      />
+    </div>
+    <div class="contactanos-block relative flex flex-col items-center gap-6 px-2 py-10">
+      <Image
+        class="absolute inset-0 -z-20 h-full w-full object-cover"
+        src={Contactanos1}
+        alt="Placeholder"
+      />
+      <Image
+        class="absolute inset-0 -z-20 h-full w-full object-cover"
+        src={Contactanos2}
+        alt="Placeholder"
+      />
+      <div class="absolute inset-0 -z-10 bg-midnight/70"></div>
+      <h3 class="text-center text-2xl font-semibold text-white">Estamos listos para escucharte</h3>
+      <p class="text-center text-balance text-white">
+        Desde la primera reunión, nos enfocamos en entender lo que tu marca necesita.
+      </p>
+      <Button
+        class="mt-auto"
+        text="Contáctanos"
+        type="anchor"
+        href="/contactanos"
+        style="secondary"
+      />
+    </div>
+  </div>
+</section>
+
+<script>
+  import { gsap } from 'gsap';
+
+  const $imagesConocenos = document.querySelectorAll('.conocenos-block img');
+  const $imagesContactanos = document.querySelectorAll('.contactanos-block img');
+
+  gsap.set($imagesConocenos, { opacity: 0 });
+  gsap.set($imagesConocenos[0], { opacity: 1 });
+
+  gsap.set($imagesContactanos, { opacity: 0 });
+  gsap.set($imagesContactanos[0], { opacity: 1 });
+
+  const tl = gsap.timeline({ repeat: -1 });
+  const tl2 = gsap.timeline({ repeat: -1 });
+
+  $imagesConocenos.forEach((img, i) => {
+    const next = $imagesConocenos[(i + 1) % $imagesConocenos.length];
+    tl.to(img, { opacity: 0, duration: 1, delay: 2 }).to(next, { opacity: 1, duration: 1 }, '<');
+  });
+
+  $imagesContactanos.forEach((img, i) => {
+    const next = $imagesContactanos[(i + 1) % $imagesContactanos.length];
+    tl2.to(img, { opacity: 0, duration: 1, delay: 2 }).to(next, { opacity: 1, duration: 1 }, '<');
+  });
+</script>

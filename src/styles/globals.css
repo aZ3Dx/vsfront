@@ -1,0 +1,39 @@
+@import 'tailwindcss';
+@import '@fontsource-variable/outfit';
+@import '@fontsource-variable/fraunces';
+
+@theme {
+  --font-body: Outfit Variable, sans-serif;
+  --font-heading: Fraunces Variable, serif;
+  --color-beige1: #faeee0;
+  --color-beige2: #ffe6c9;
+  --color-midnight: #191d24;
+  --color-error: #f3837e;
+  --color-success: #9bb899;
+}
+
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading;
+  }
+}
+
+@layer utilities {
+  .font-body {
+    font-family: var(--font-body);
+  }
+  .font-heading {
+    font-family: var(--font-heading);
+  }
+}
+
+@layer components {
+  .header-scrolled {
+    @apply border-b !border-white/20 bg-white/50 !text-midnight backdrop-blur-md;
+  }
+}

@@ -1,0 +1,57 @@
+---
+import { Image } from 'astro:assets';
+import { SERVICES } from '@/consts/services';
+import LogoFull from '@/assets/images/LogoFullRounded.png';
+import IconBrandInstagram from '@/assets/icons/IconBrandInstagram.svg';
+import IconBrandFacebook from '@/assets/icons/IconBrandFacebook.svg';
+import IconBrandYoutube from '@/assets/icons/IconBrandYoutube.svg';
+---
+
+<footer class="mx-auto bg-beige1 py-10">
+  <div class="mb-10 flex justify-center">
+    <Image
+      class="rounded-full border-4 border-white"
+      src={LogoFull}
+      width={100}
+      height={100}
+      alt="Logo"
+    />
+  </div>
+  <div class="mb-10">
+    <ul class="text-center">
+      {
+        SERVICES.map((service) => (
+          <li>
+            <a href={`/servicios/${service.slug}`}>{service.name}</a>
+          </li>
+        ))
+      }
+      <li><a href="/portafolio">Portafolio</a></li>
+      <li><a href="/sobre-nosotros">Sobre Nosotros</a></li>
+      <li><a href="/contacto">Contacto</a></li>
+      <li><a href="/blog">Blog</a></li>
+    </ul>
+  </div>
+  <div>
+    <ul class="mb-10 flex items-center justify-center gap-4">
+      <li>
+        <a href="https://www.instagram.com/visual.studio.official/">
+          <IconBrandInstagram class="h-6 w-6" />
+        </a>
+      </li>
+      <li>
+        <a href="https://www.facebook.com/visual.studio.official">
+          <IconBrandFacebook class="h-6 w-6" />
+        </a>
+      </li>
+      <li>
+        <a href="https://www.youtube.com/@visual.studio.official">
+          <IconBrandYoutube class="h-6 w-6" />
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="text-center">
+    <span class="text-xs">Copyright &copy; 2025 Visual Studio</span>
+  </div>
+</footer>

@@ -1,0 +1,78 @@
+---
+import clsx from 'clsx';
+
+interface Props {
+  class?: string;
+  text: string;
+  type: 'anchor' | 'button';
+  style?: 'primary' | 'secondary' | 'primary-simple' | 'secondary-simple';
+  href?: string;
+  animated?: boolean;
+  animation?: 'border' | 'content';
+}
+
+const {
+  class: className,
+  text,
+  type,
+  style = 'primary',
+  href,
+  animated = false,
+  animation,
+} = Astro.props as Props;
+---
+
+{
+  type === 'anchor' ? (
+    <div
+      class={clsx(
+        className,
+        'button-component flex items-center gap-1 rounded-lg px-4 py-2',
+        style === 'primary' && 'bg-midnight text-beige1',
+        style === 'secondary' && 'bg-beige1 font-semibold text-midnight',
+        style === 'primary-simple' && 'font-semibold text-beige1',
+        style === 'secondary-simple' && 'font-semibold text-midnight',
+      )}
+      data-animated={animated}
+      data-animation={animation}
+    >
+      <a href={href}>
+        <slot name="icon-left" />
+        <span>{text}</span>
+        <slot name="icon-right" />
+      </a>
+    </div>
+  ) : (
+    <button
+      class={clsx(
+        className,
+        'button-component rounded-lg p-2',
+        style === 'primary' && 'bg-midnight text-beige1',
+        style === 'secondary' && 'bg-beige1 font-semibold text-midnight',
+        style === 'primary-simple' && 'font-semibold text-beige1',
+        style === 'secondary-simple' && 'font-semibold text-midnight',
+      )}
+    >
+      <slot name="icon-left" />
+      {text}
+      <slot name="icon-right" />
+    </button>
+  )
+}
+
+<style scoped></style>
+
+<script>
+  import { gsap } from 'gsap';
+
+  // const $button = document.querySelector('.button-component') as HTMLDivElement;
+
+  // if ($button.dataset.animated && $button.dataset.animation === 'border') {
+  //   gsap.to($button, {
+  //     backgroundPosition: '200% 0',
+  //     duration: 3,
+  //     ease: 'linear',
+  //     repeat: -1,
+  //   });
+  // }
+</script>
