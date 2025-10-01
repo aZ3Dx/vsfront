@@ -1,15 +1,16 @@
 ---
-import { getCollection, type CollectionEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
+import  type { Blog } from '@/types/blog';
 import { BlogsCarousel } from '@/components/BlogsCarousel.tsx';
 
-const blogs: CollectionEntry<'blogs'>[] = await getCollection('blogs');
+const blogs: Blog[] = await getCollection('blogs');
 ---
 
 <section class="relative py-20">
   <div class="absolute top-0 h-10 w-full bg-linear-to-t from-transparent to-white"></div>
   <div class="absolute bottom-0 h-10 w-full bg-linear-to-b from-transparent to-white"></div>
   <div class="px-2">
-    <h3 class="text-center text-2xl font-bold mb-10">REVISA NUESTRO BLOG</h3>
+    <h3 class="mb-10 text-center text-2xl font-bold">REVISA NUESTRO BLOG</h3>
     <BlogsCarousel blogs={blogs} client:load />
   </div>
 </section>
