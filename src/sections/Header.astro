@@ -4,6 +4,8 @@ import LogoFull from '@/assets/images/LogoFullRounded.png';
 import LogoMin from '@/assets/images/LogoMinRounded.png';
 import IconMenu2 from '@/assets/icons/IconMenu2.svg';
 import IconArrowBarLeft from '@/assets/icons/IconArrowBarLeft.svg';
+import IconTriangleFilled from '@/assets/icons/IconTriangleFilled.svg';
+import { SERVICES } from '@/consts/services';
 ---
 
 <header class="fixed z-20 flex h-18 w-full items-center">
@@ -29,7 +31,19 @@ import IconArrowBarLeft from '@/assets/icons/IconArrowBarLeft.svg';
       class="links-container flex h-full flex-col items-center justify-center gap-2 px-10 tracking-wider uppercase"
     >
       <li><a href="/">Inicio</a></li>
-      <li><a href="/servicios">Servicios</a></li>
+      <li class="services-link flex items-center gap-1">
+        <span>Servicios</span>
+        <IconTriangleFilled class="mt-[2px] h-2 w-2 rotate-180" />
+      </li>
+      <ul class="submenu-services hidden overflow-hidden pl-4 list-disc">
+        {
+          SERVICES.map((service) => (
+            <li class="capitalize">
+              <a href={`/servicios/${service.slug}`}>{service.name}</a>
+            </li>
+          ))
+        }
+      </ul>
       <li><a href="/portafolio">Portafolio</a></li>
       <li><a href="/blog">Blog</a></li>
       <li><a href="/sobre-nosotros">Sobre Nosotros</a></li>
@@ -53,6 +67,40 @@ import IconArrowBarLeft from '@/assets/icons/IconArrowBarLeft.svg';
   const $header = document.querySelector('.header') as HTMLElement;
   const $linksContainer = document.querySelector('.links-container') as HTMLUListElement;
 
+  const $servicesLink = document.querySelector('.services-link') as HTMLLIElement;
+  const $submenuServices = document.querySelector('.submenu-services') as HTMLDivElement;
+
+  $servicesLink.addEventListener('click', () => {
+    const isHidden = $submenuServices.classList.contains('hidden');
+
+    if (isHidden) {
+      $submenuServices.classList.remove('hidden');
+      $servicesLink.querySelector('svg')?.classList.remove('rotate-180');
+
+      gsap.fromTo(
+        $submenuServices,
+        { height: 0, opacity: 0 },
+        {
+          height: 'auto',
+          opacity: 1,
+          duration: 0.5,
+          ease: 'power2.out',
+        },
+      );
+    } else {
+      $servicesLink.querySelector('svg')?.classList.add('rotate-180');
+      gsap.to($submenuServices, {
+        height: 0,
+        opacity: 0,
+        duration: 0.4,
+        ease: 'power2.in',
+        onComplete: () => {
+          $submenuServices.classList.add('hidden');
+        },
+      });
+    }
+  });
+
   $menuButton.addEventListener('click', () => {
     $menuMobile.classList.remove('hidden');
 
@@ -61,7 +109,7 @@ import IconArrowBarLeft from '@/assets/icons/IconArrowBarLeft.svg';
     tl.fromTo($menuMobile, { x: '-100%' }, { x: '0%', duration: 0.4, ease: 'power3.out' });
 
     tl.fromTo(
-      $linksContainer.querySelectorAll('li'),
+      $linksContainer.querySelectorAll(':scope > li'),
       { x: -20, opacity: 0 },
       {
         x: 0,
@@ -81,7 +129,7 @@ import IconArrowBarLeft from '@/assets/icons/IconArrowBarLeft.svg';
       ease: 'power3.in',
       onComplete: () => {
         $menuMobile.classList.add('hidden');
-        gsap.set($linksContainer.querySelectorAll('li'), { opacity: 0 });
+        gsap.set($linksContainer.querySelectorAll(':scope > li'), { opacity: 0 });
       },
     });
   }
