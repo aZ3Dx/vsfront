@@ -4,7 +4,9 @@ import { useEffect } from 'react';
 import Autoplay from 'embla-carousel-autoplay';
 
 export const ClientsCarousel = () => {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [Autoplay({ delay: 2000 })]);
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
+    Autoplay({ delay: 2000, stopOnInteraction: false, stopOnMouseEnter: false }),
+  ]);
 
   useEffect(() => {
     if (emblaApi) {
