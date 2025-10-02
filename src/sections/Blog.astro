@@ -1,6 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
-import  type { Blog } from '@/types/blog';
+import type { Blog } from '@/types/blog';
 import { BlogsCarousel } from '@/components/BlogsCarousel.tsx';
 
 const blogs: Blog[] = await getCollection('blogs');
@@ -10,7 +10,7 @@ const blogs: Blog[] = await getCollection('blogs');
   <div class="absolute top-0 h-10 w-full bg-linear-to-t from-transparent to-white"></div>
   <div class="absolute bottom-0 h-10 w-full bg-linear-to-b from-transparent to-white"></div>
   <div class="px-2">
-    <h3 class="mb-10 text-center text-2xl font-bold">REVISA NUESTRO BLOG</h3>
+    <h3 class="blog-title mb-10 text-center text-2xl font-bold">REVISA NUESTRO BLOG</h3>
     <BlogsCarousel blogs={blogs} client:load />
   </div>
 </section>
@@ -20,3 +20,25 @@ const blogs: Blog[] = await getCollection('blogs');
     background-image: url("data:image/svg+xml,<svg id='patternId' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><defs><pattern id='a' patternUnits='userSpaceOnUse' width='40' height='20' patternTransform='scale(2) rotate(0)'><rect x='0' y='0' width='100%' height='100%' fill='%23ffffffff'/><path d='M19.988 0l10 10L40 .006z'  stroke-width='1' stroke='none' fill='%23faeee0ff'/><path d='M10.012 10L0 19.994 19.988 20z'  stroke-width='1' stroke='none' fill='%23faeee0ff'/></pattern></defs><rect width='800%' height='800%' transform='translate(0,0)' fill='url(%23a)'/></svg>");
   }
 </style>
+
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  gsap.registerPlugin(ScrollTrigger);
+
+  const $blogTitle = document.querySelector('.blog-title');
+
+  gsap.fromTo(
+    $blogTitle,
+    { y: 100, autoAlpha: 0 },
+    {
+      y: 0,
+      autoAlpha: 1,
+      duration: 1,
+      scrollTrigger: {
+        trigger: $blogTitle,
+        start: 'top 80%',
+      },
+    },
+  );
+</script>
