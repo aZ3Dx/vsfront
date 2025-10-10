@@ -18,7 +18,7 @@ const { service } = Astro.props;
 ---
 
 <Layout>
-  <main class="pt-20 overflow-x-hidden">
+  <main class="pt-20">
     <section>
       <div class="embla service-header-carousel">
         <div class="embla__container">
@@ -108,7 +108,12 @@ const { service } = Astro.props;
   }
 
   .service-image {
-    transform: translateX(100px);
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+
+  .portfolio-services-section {
+    transform: translateY(100px);
     opacity: 0;
   }
 </style>
@@ -166,9 +171,9 @@ const { service } = Astro.props;
     },
   });
 
-  gsap.from($portfolioServicesSection, {
-    y: 100,
-    autoAlpha: 0,
+  gsap.to($portfolioServicesSection, {
+    y: 0,
+    autoAlpha: 1,
     duration: 1,
     scrollTrigger: {
       trigger: $portfolioServicesSection,
