@@ -1,16 +1,19 @@
 ---
-import { Image } from 'astro:assets';
+import IconArrowBarLeft from '@/assets/icons/IconArrowBarLeft.svg';
+import IconMenu2 from '@/assets/icons/IconMenu2.svg';
+import IconTriangleFilled from '@/assets/icons/IconTriangleFilled.svg';
 import LogoFull from '@/assets/images/LogoFullRounded.png';
 import LogoMin from '@/assets/images/LogoMinRounded.png';
-import IconMenu2 from '@/assets/icons/IconMenu2.svg';
-import IconArrowBarLeft from '@/assets/icons/IconArrowBarLeft.svg';
-import IconTriangleFilled from '@/assets/icons/IconTriangleFilled.svg';
 import { SERVICES } from '@/consts/services';
+import { Image } from 'astro:assets';
+
+const isLanding = Astro.url.pathname === '/';
 ---
 
 <header class="fixed z-20 flex h-18 w-full items-center">
   <div
-    class="header relative box-content flex w-full items-center justify-center border-b border-transparent py-3 text-white transition-all duration-300"
+    class=`header relative box-content flex w-full items-center justify-center border-b border-transparent py-3 transition-all duration-300
+    ${isLanding ? 'text-white' : 'text-midnight'}`
   >
     <div class="menu-button absolute left-4">
       <IconMenu2 stroke-width={2} class="text-inherit" />
@@ -35,7 +38,7 @@ import { SERVICES } from '@/consts/services';
         <span>Servicios</span>
         <IconTriangleFilled class="mt-[2px] h-2 w-2 rotate-180" />
       </li>
-      <ul class="submenu-services hidden overflow-hidden pl-4 list-disc">
+      <ul class="submenu-services hidden list-disc overflow-hidden pl-4">
         {
           SERVICES.map((service) => (
             <li class="capitalize">
@@ -138,11 +141,14 @@ import { SERVICES } from '@/consts/services';
     el.addEventListener('click', closeMenu);
   });
 
-  window.addEventListener('scroll', () => {
+  function checkHeaderScroll() {
     if (window.scrollY > 50) {
       $header.classList.add('header-scrolled');
     } else {
       $header.classList.remove('header-scrolled');
     }
-  });
+  }
+
+  checkHeaderScroll();
+  window.addEventListener('scroll', checkHeaderScroll);
 </script>

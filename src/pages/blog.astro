@@ -1,9 +1,29 @@
 ---
+import BlogCard from '@/components/BlogCard.astro';
 import Layout from '@/layouts/Layout.astro';
+import type { Blog } from '@/types/blog';
+import { getCollection } from 'astro:content';
+
+const blogs: Blog[] = await getCollection('blogs');
 ---
 
 <Layout>
-  <main class="bg-midnight pt-32 text-6xl text-white">
-    <h1>Blog</h1>
+  <main class="pt-20">
+    <section>
+      <h1 class="text-center text-2xl font-semibold">Nuestro Blog</h1>
+      <p class="mt-4 text-center text-balance">
+        Últimas tendencias, consejos y experiencias en fotografía que hemos experimentado. Inspírate
+        y descubre más sobre <span class="font-semibold">Visual Studio</span>.
+      </p>
+    </section>
+    <section class="py-4">
+      {
+        blogs.map((blog) => (
+          <div class="p-4">
+            <BlogCard blog={blog} />
+          </div>
+        ))
+      }
+    </section>
   </main>
 </Layout>

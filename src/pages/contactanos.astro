@@ -1,9 +1,52 @@
 ---
+import IconBrandFacebook from '@/assets/icons/IconBrandFacebook.svg';
+import IconBrandInstagram from '@/assets/icons/IconBrandInstagram.svg';
+import IconBrandWhatsapp from '@/assets/icons/IconBrandWhatsapp.svg';
+import IconMail from '@/assets/icons/IconMail.svg';
+import LightBoxImage from '@/assets/images/LightBox.png';
+import Question from '@/components/Question.astro';
+import { QUESTIONS } from '@/consts/questions';
 import Layout from '@/layouts/Layout.astro';
+import { Image } from 'astro:assets';
 ---
 
 <Layout>
-  <main class="bg-midnight pt-32 text-6xl text-white">
-    <h1>Contáctanos</h1>
+  <main class="pt-24">
+    <section>
+      <h1 class="mb-4 text-center text-2xl font-semibold">Hablemos de tu próximo proyecto</h1>
+      <p class="mb-8 text-center text-lg text-balance">
+        Queremos que contactar con nosotros sea tan sencillo como tomarse una foto. Puedes
+        escribirnos por WhatsApp, seguirnos en redes o enviarnos un correo con los detalles de tu
+        proyecto. Elige tu canal favorito y comencemos a trabajar en tus imágenes.
+      </p>
+      <div>
+        <!-- <Image src={LightBoxImage} alt="Placeholder" /> -->
+        <div class="grid grid-cols-1 gap-2 p-4 font-heading">
+          <div class="flex items-center gap-2 rounded-lg bg-midnight p-4 text-white">
+            <IconBrandWhatsapp class="h-8 w-8" />
+            <p>(+51) 987 987 987</p>
+          </div>
+          <div class="flex items-center gap-2 rounded-lg bg-midnight p-4 text-white">
+            <IconBrandInstagram class="h-8 w-8" />
+            <p>@visual_studio</p>
+          </div>
+          <div class="flex items-center gap-2 rounded-lg bg-midnight p-4 text-white">
+            <IconBrandFacebook class="h-8 w-8" />
+            <p>visual_studio</p>
+          </div>
+          <div class="flex items-center gap-2 rounded-lg bg-midnight p-4 text-white">
+            <IconMail class="h-8 w-8" />
+            <p>visual_studio@gmail.com</p>
+          </div>
+        </div>
+        <!-- <Image class="transform -scale-x-100" src={LightBoxImage} alt="Placeholder" /> -->
+      </div>
+    </section>
+    <section class="py-20">
+      <h2 class="mb-10 text-center text-2xl font-semibold">Preguntas Frecuentes</h2>
+      <div class="flex flex-col gap-4 px-4">
+        {QUESTIONS.map((question) => <Question question={question} />)}
+      </div>
+    </section>
   </main>
 </Layout>

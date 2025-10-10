@@ -1,9 +1,94 @@
 ---
+import Button from '@/components/Button.astro';
+import Gallery from '@/components/Gallery.astro';
+import { SERVICES } from '@/consts/services';
 import Layout from '@/layouts/Layout.astro';
+import { Image } from 'astro:assets';
 ---
 
 <Layout>
-  <main class="bg-midnight pt-32 text-6xl text-white">
-    <h1>Portafolio</h1>
+  <main class="pt-20">
+    <section class="mb-2">
+      <h1 class="text-center text-2xl font-semibold">Portafolio</h1>
+    </section>
+    <section class="sticky top-18 z-10 bg-white/70 py-4 backdrop-blur-md">
+      <nav>
+        <ul class="scrollbar-hide flex gap-2 overflow-x-auto">
+          {
+            SERVICES.map((service, index) => (
+              <li
+                class="relative"
+                class:list={`${index === 0 ? 'ml-4' : ''} ${index === SERVICES.length - 1 ? 'mr-4' : ''}`}
+              >
+                <button
+                  data-service-index={index}
+                  class="text-md service-portfolio-btn z-10 h-full min-w-36 rounded-lg p-2 leading-tight font-semibold"
+                  class:list={`${index === 0 ? 'active' : 'border border-beige1'}`}
+                >
+                  <span class="text-black">{service.name}</span>
+                </button>
+                <Image
+                  src={service.image}
+                  alt={service.name}
+                  class="absolute top-0 left-0 -z-10 h-full w-full rounded-lg object-cover opacity-30"
+                />
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+    </section>
+    <section>
+      <div class="p-4">
+        {
+          SERVICES.map((service, index) => (
+            <div
+              data-gallery-index={index}
+              class={`gallery-portfolio-container ${index === 0 ? '' : 'hidden'}`}
+            >
+              <Gallery mediaFiles={service.allMediaFiles} preview />
+              <Button
+                class="mx-auto w-fit"
+                text="Ver más del portafolio"
+                type="anchor"
+                href={`servicios/${service.slug}/portafolio`}
+                style="primary"
+              />
+            </div>
+          ))
+        }
+      </div>
+    </section>
   </main>
 </Layout>
+
+<style>
+  .service-portfolio-btn.active {
+    opacity: 1;
+    border: 2px solid rgba(0, 0, 0, 0.7);
+  }
+</style>
+
+<script>
+  const $buttons = document.querySelectorAll('.service-portfolio-btn');
+  const $galleries = document.querySelectorAll('.gallery-portfolio-container');
+
+  $buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const index = button.getAttribute('data-service-index');
+
+      $buttons.forEach((btn) => btn.classList.remove('active'));
+      $buttons.forEach((btn) => btn.classList.add('opacity-70'));
+
+      button.classList.add('active');
+      button.classList.remove('opacity-70');
+
+      $galleries.forEach((gallery) => gallery.classList.add('hidden'));
+
+      const selectedGallery = document.querySelector(`[data-gallery-index="${index}"]`);
+      if (selectedGallery) {
+        selectedGallery.classList.remove('hidden');
+      }
+    });
+  });
+</script>

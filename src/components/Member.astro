@@ -1,0 +1,31 @@
+---
+import IconBorderCornerSquare from '@/assets/icons/IconBorderCornerSquare.svg';
+import type { ImageMetadata } from 'astro';
+import { Image } from 'astro:assets';
+
+interface Props {
+  image: ImageMetadata;
+  name: string;
+  role: string;
+  description: string;
+}
+
+const { image, name, role, description } = Astro.props as Props;
+---
+
+<div class="grid min-h-40 grid-cols-2 gap-2">
+  <div class="relative overflow-hidden rounded-lg border-3 border-black">
+    <Image src={image} alt={name} class="h-full w-full object-cover" />
+    <IconBorderCornerSquare class="absolute top-2 left-2 h-4 w-4" />
+    <IconBorderCornerSquare class="absolute right-2 bottom-2 h-4 w-4 rotate-180" />
+    <IconBorderCornerSquare class="absolute top-2 right-2 h-4 w-4 rotate-90" />
+    <IconBorderCornerSquare class="absolute bottom-2 left-2 h-4 w-4 rotate-270" />
+  </div>
+  <div class="flex flex-col justify-center gap-2">
+    <div>
+      <h4 class="text-lg leading-5 font-semibold">{name}</h4>
+      <p class="text-sm">{role}</p>
+    </div>
+    <p class="leading-tight text-balance">{description}</p>
+  </div>
+</div>

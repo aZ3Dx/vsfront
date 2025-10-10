@@ -1,0 +1,31 @@
+---
+import IconChevronsRight from '@/assets/icons/IconChevronsRight.svg';
+import type { Blog } from '@/types/blog';
+import Button from './Button.astro';
+
+interface Props {
+  blog: Blog;
+}
+
+const { blog } = Astro.props;
+---
+
+<div class="flex flex-col gap-2 rounded-lg border border-black/20 p-4">
+  <div class="h-50 overflow-hidden rounded-lg">
+    <img src={blog.data.coverImageUrl} alt={blog.data.title} class="h-full w-full object-cover" />
+  </div>
+  <div>
+    <h2 class="mb-1 text-lg font-semibold">{blog.data.title}</h2>
+    <div class="mb-2 flex items-center gap-1 text-xs">
+      <span>Por <span class="font-semibold">{blog.data.madeBy}</span></span>
+      <span>|</span>
+      <span>{blog.data.lectureTime} de lectura</span>
+    </div>
+    <p class="mb-2 line-clamp-3 text-balance">
+      {blog.data.description}
+    </p>
+    <Button href={`/blogs/${blog.slug}`} type="anchor" text="Leer más" style="secondary-simple">
+      <IconChevronsRight slot="icon-right" class="h-6 w-6 pt-1" />
+    </Button>
+  </div>
+</div>

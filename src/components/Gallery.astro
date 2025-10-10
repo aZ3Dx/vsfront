@@ -1,0 +1,41 @@
+---
+import type { MediaFile } from '@/types/service';
+import 'glightbox/dist/css/glightbox.css';
+
+interface Props {
+  mediaFiles: MediaFile[];
+  preview?: boolean;
+}
+
+const { mediaFiles, preview = false } = Astro.props;
+---
+
+<div class="relative grid grid-cols-1 gap-2">
+  {
+    mediaFiles.map((mediaFile) => (
+      <a href={mediaFile.url} class="glightbox" data-gallery="gallery">
+        <img src={mediaFile.url} class="rounded-lg" alt={mediaFile.alt} />
+      </a>
+    ))
+  }
+  {
+    preview && (
+      <div class="absolute right-0 bottom-0 left-0 h-40 bg-gradient-to-b from-transparent to-white" />
+    )
+  }
+</div>
+
+<script>
+  import GLightbox from 'glightbox';
+
+  const lightbox = GLightbox({
+    selector: '.glightbox',
+    touchNavigation: true,
+    loop: true,
+    autoplayVideos: true,
+  });
+
+  lightbox.on('open', () => {
+    console.log('Lightbox opened');
+  });
+</script>

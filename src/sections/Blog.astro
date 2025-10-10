@@ -1,7 +1,8 @@
 ---
-import { getCollection } from 'astro:content';
+import IconChevronsRight from '@/assets/icons/IconChevronsRight.svg';
+import Button from '@/components/Button.astro';
 import type { Blog } from '@/types/blog';
-import { BlogsCarousel } from '@/components/BlogsCarousel.tsx';
+import { getCollection } from 'astro:content';
 
 const blogs: Blog[] = await getCollection('blogs');
 ---
@@ -11,13 +12,57 @@ const blogs: Blog[] = await getCollection('blogs');
   <div class="absolute bottom-0 h-10 w-full bg-linear-to-b from-transparent to-white"></div>
   <div class="px-2">
     <h3 class="blog-title mb-10 text-center text-2xl font-bold">REVISA NUESTRO BLOG</h3>
-    <BlogsCarousel blogs={blogs} client:load />
+    <div class="embla blogs-landing-carousel">
+      <div class="embla__container">
+        {
+          blogs.map((blog) => (
+            <div class="embla__slide">
+              <div class="">
+                <img
+                  src={blog.data.coverImageUrl}
+                  alt={blog.data.title}
+                  height={100}
+                  class="mb-4 h-56 w-full rounded-lg object-cover"
+                />
+                <h3 class="mb-4 text-xl font-bold">{blog.data.title}</h3>
+                <p class="mb-2">{blog.data.description}</p>
+                <Button
+                  href={`/blogs/${blog.slug}`}
+                  type="anchor"
+                  text="Leer más"
+                  style="secondary-simple"
+                >
+                  <IconChevronsRight slot="icon-right" class="h-6 w-6 pt-1" />
+                </Button>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
   </div>
 </section>
 
 <style>
   section {
     background-image: url("data:image/svg+xml,<svg id='patternId' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><defs><pattern id='a' patternUnits='userSpaceOnUse' width='40' height='20' patternTransform='scale(2) rotate(0)'><rect x='0' y='0' width='100%' height='100%' fill='%23ffffffff'/><path d='M19.988 0l10 10L40 .006z'  stroke-width='1' stroke='none' fill='%23faeee0ff'/><path d='M10.012 10L0 19.994 19.988 20z'  stroke-width='1' stroke='none' fill='%23faeee0ff'/></pattern></defs><rect width='800%' height='800%' transform='translate(0,0)' fill='url(%23a)'/></svg>");
+  }
+
+  .embla {
+    overflow: hidden;
+  }
+
+  .embla__container {
+    display: flex;
+    gap: 1rem;
+    padding: 0 1rem;
+  }
+
+  .embla__slide {
+    flex: 0 0 90%;
+    box-sizing: border-box;
+    min-width: 0;
+    padding: 0 0px;
   }
 </style>
 
@@ -41,4 +86,16 @@ const blogs: Blog[] = await getCollection('blogs');
       },
     },
   );
+</script>
+
+<script>
+  import type { EmblaOptionsType } from 'embla-carousel';
+  import EmblaCarousel from 'embla-carousel';
+
+  const $emblaNode = document.querySelector('.blogs-landing-carousel') as HTMLDivElement;
+  const options: EmblaOptionsType = {
+    loop: true,
+  };
+
+  const emblaApi = EmblaCarousel($emblaNode, options);
 </script>

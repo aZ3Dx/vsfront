@@ -27,16 +27,16 @@ const {
     <div
       class={clsx(
         className,
-        'button-component flex items-center gap-1 rounded-lg px-4 py-2',
-        style === 'primary' && 'bg-midnight text-beige1',
-        style === 'secondary' && 'bg-beige1 font-semibold text-midnight',
+        'button-component flex items-center gap-1 rounded-lg',
+        style === 'primary' && 'bg-midnight px-4 py-2 text-beige1',
+        style === 'secondary' && 'bg-beige1 px-4 py-2 font-semibold text-midnight',
         style === 'primary-simple' && 'font-semibold text-beige1',
         style === 'secondary-simple' && 'font-semibold text-midnight',
       )}
       data-animated={animated}
       data-animation={animation}
     >
-      <a href={href}>
+      <a href={href} class="flex items-center gap-1">
         <slot name="icon-left" />
         <span>{text}</span>
         <slot name="icon-right" />
@@ -46,9 +46,9 @@ const {
     <button
       class={clsx(
         className,
-        'button-component rounded-lg p-2',
-        style === 'primary' && 'bg-midnight text-beige1',
-        style === 'secondary' && 'bg-beige1 font-semibold text-midnight',
+        'button-component rounded-lg',
+        style === 'primary' && 'bg-midnight p-2 text-beige1',
+        style === 'secondary' && 'bg-beige1 p-2 font-semibold text-midnight',
         style === 'primary-simple' && 'font-semibold text-beige1',
         style === 'secondary-simple' && 'font-semibold text-midnight',
       )}

@@ -1,0 +1,28 @@
+---
+import Gallery from '@/components/Gallery.astro';
+import { SERVICES } from '@/consts/services';
+import Layout from '@/layouts/Layout.astro';
+import type { GetStaticPaths } from 'astro';
+
+export const getStaticPaths = (async () => {
+  return SERVICES.map((service) => ({
+    params: { slug: service.slug },
+    props: { service },
+  }));
+}) satisfies GetStaticPaths;
+
+const { service } = Astro.props;
+---
+
+<Layout>
+  <main class="pt-20">
+    <section class="bg-beige1 px-4 py-8">
+      <h1 class="mb-4 text-center text-2xl font-semibold">Portafolio</h1>
+      <h2 class="mb-2 text-center text-xl">{service.name}</h2>
+      <p class="text-center text-balance">{service.portfolioDescription}</p>
+    </section>
+    <section class="py-10 px-6">
+      <Gallery mediaFiles={service.allMediaFiles} />
+    </section>
+  </main>
+</Layout>
