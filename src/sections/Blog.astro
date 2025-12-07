@@ -11,7 +11,7 @@ const blogs: Blog[] = await getCollection('blogs');
   <div class="absolute top-0 h-10 w-full bg-linear-to-t from-transparent to-white"></div>
   <div class="absolute bottom-0 h-10 w-full bg-linear-to-b from-transparent to-white"></div>
   <div class="px-2">
-    <h3 class="blog-title mb-10 text-center text-2xl font-bold">REVISA NUESTRO BLOG</h3>
+    <h3 class="blog-title mb-10 text-center text-2xl font-bold lg:text-4xl">REVISA NUESTRO BLOG</h3>
     <div class="embla blogs-landing-carousel">
       <div class="embla__container">
         {
@@ -64,6 +64,12 @@ const blogs: Blog[] = await getCollection('blogs');
     min-width: 0;
     padding: 0 0px;
   }
+
+  @media (min-width: 1024px) {
+    .embla__slide {
+      flex: 0 0 31%;
+    }
+  }
 </style>
 
 <script>
@@ -72,16 +78,30 @@ const blogs: Blog[] = await getCollection('blogs');
   gsap.registerPlugin(ScrollTrigger);
 
   const $blogTitle = document.querySelector('.blog-title');
+  const $blogsLandingCarousel = document.querySelector('.blogs-landing-carousel');
 
   gsap.fromTo(
     $blogTitle,
-    { y: 100, autoAlpha: 0 },
+    { x: -100, autoAlpha: 0 },
     {
-      y: 0,
+      x: 0,
       autoAlpha: 1,
       duration: 1,
       scrollTrigger: {
         trigger: $blogTitle,
+        start: 'top 80%',
+      },
+    },
+  );
+
+  gsap.fromTo(
+    $blogsLandingCarousel,
+    { autoAlpha: 0 },
+    {
+      autoAlpha: 1,
+      duration: 1,
+      scrollTrigger: {
+        trigger: $blogsLandingCarousel,
         start: 'top 80%',
       },
     },

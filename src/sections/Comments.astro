@@ -1,9 +1,9 @@
 ---
-import { Image } from 'astro:assets';
-import { COMMENTS } from '@/consts/comments';
 import IconBorderCornerSquare from '@/assets/icons/IconBorderCornerSquare.svg';
-import SVGCheck from '@/assets/svgs/Check.svg';
 import IconQuote from '@/assets/icons/IconQuote.svg';
+import SVGCheck from '@/assets/svgs/Check.svg';
+import { COMMENTS } from '@/consts/comments';
+import { Image } from 'astro:assets';
 ---
 
 <section class="mb-4">
@@ -19,10 +19,12 @@ import IconQuote from '@/assets/icons/IconQuote.svg';
       class="absolute bottom-2 left-2 rotate-270 text-beige2"
     />
     <div class="px-4 py-20">
-      <h2 class="comments-title mb-18 text-center text-2xl font-bold">
+      <h2 class="comments-title mb-18 text-center text-2xl font-bold lg:text-4xl">
         LO QUE DICEN NUESTROS CLIENTES
       </h2>
-      <ul class="flex flex-col gap-14">
+      <ul
+        class="flex flex-col gap-14 lg:mx-auto lg:grid lg:max-w-4xl lg:grid-cols-2 lg:grid-rows-2"
+      >
         {
           COMMENTS.map((comment, index) => (
             <li class="comment-card">
