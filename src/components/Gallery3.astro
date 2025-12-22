@@ -1,0 +1,53 @@
+---
+import type { MediaFile } from '@/types/service';
+import 'photoswipe/style.css';
+
+interface Props {
+  mediaFiles: MediaFile[];
+  preview?: boolean;
+}
+
+const { mediaFiles, preview = false } = Astro.props;
+
+const mediaToShow = preview ? mediaFiles.slice(0, 3) : mediaFiles.slice(0, 20);
+---
+
+<div
+  id="my-gallery"
+  class="pswp-gallery pswp-gallery--single-column"
+>
+  {
+    mediaToShow.map((mediaFile) => (
+      <a
+        href={`${mediaFile.url}_highres.webp`}
+        data-pswp-width="800"
+        data-pswp-height="800"
+        target="_blank"
+      >
+        <img
+          src={`${mediaFile.url}_thumb.webp`}
+          class="h-full w-full rounded-lg object-cover"
+          alt={mediaFile.alt}
+        />
+      </a>
+    ))
+  }
+  {
+    preview && (
+      <div class="absolute right-0 bottom-0 left-0 h-40 bg-gradient-to-b from-transparent to-white" />
+    )
+  }
+</div>
+
+<script>
+  import PhotoSwipeLightbox from 'photoswipe/lightbox';
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const lightbox = new PhotoSwipeLightbox({
+      gallery: '#my-gallery',
+      children: 'a',
+      pswpModule: () => import('photoswipe'),
+    });
+    lightbox.init();
+  });
+</script>

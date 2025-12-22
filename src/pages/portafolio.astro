@@ -3,34 +3,36 @@ import Button from '@/components/Button.astro';
 import Gallery from '@/components/Gallery.astro';
 import { SERVICES } from '@/consts/services';
 import Layout from '@/layouts/Layout.astro';
-import { Image } from 'astro:assets';
 ---
 
 <Layout>
-  <main class="pt-20">
+  <main class="pt-20 lg:pt-30">
     <section class="mb-2">
-      <h1 class="text-center text-2xl font-semibold">Portafolio</h1>
+      <h1 class="text-center text-2xl font-semibold lg:text-4xl">Portafolio</h1>
     </section>
-    <section class="sticky top-18 z-10 bg-white/70 py-4 backdrop-blur-md">
+    <section class="sticky top-18 z-10 bg-white/70 py-4 backdrop-blur-md lg:top-24">
       <nav>
         <ul class="scrollbar-hide flex gap-2 overflow-x-auto">
           {
             SERVICES.map((service, index) => (
               <li
-                class="relative"
+                class="relative lg:flex-1"
                 class:list={`${index === 0 ? 'ml-4' : ''} ${index === SERVICES.length - 1 ? 'mr-4' : ''}`}
               >
                 <button
                   data-service-index={index}
-                  class="text-md service-portfolio-btn z-10 h-full min-w-36 rounded-lg p-2 leading-tight font-semibold"
+                  class="service-portfolio-btn z-10 h-full min-w-36 rounded-lg p-2 lg:h-20 lg:w-full lg:px-4"
                   class:list={`${index === 0 ? 'active' : 'border border-beige1'}`}
                 >
-                  <span class="text-black">{service.name}</span>
+                  <span class="text-md leading-tight font-semibold text-black lg:text-lg">
+                    {service.name}
+                  </span>
                 </button>
-                <Image
-                  src={service.image}
+                <img
+                  src={`${service.image.url}_thumb.webp`}
                   alt={service.name}
                   class="absolute top-0 left-0 -z-10 h-full w-full rounded-lg object-cover opacity-30"
+                  loading="eager"
                 />
               </li>
             ))
@@ -39,7 +41,7 @@ import { Image } from 'astro:assets';
       </nav>
     </section>
     <section>
-      <div class="p-4">
+      <div class="p-4 lg:mb-10">
         {
           SERVICES.map((service, index) => (
             <div

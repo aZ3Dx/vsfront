@@ -1,5 +1,7 @@
 ---
-import BackstageImage from '@/assets/images/Backstage.webp';
+import BackstageFashion from '@/assets/images/BackstageFashion.webp';
+import BackstagePodcast from '@/assets/images/BackstagePodcast.webp';
+import BackstageProduct from '@/assets/images/BackstageProduct.webp';
 import Placeholder from '@/assets/images/Placeholder.jpg';
 import Member from '@/components/Member.astro';
 import Layout from '@/layouts/Layout.astro';
@@ -7,28 +9,51 @@ import { Image } from 'astro:assets';
 ---
 
 <Layout>
-  <main class="pt-24">
-    <section class="flex flex-col items-center gap-10 px-4">
+  <main class="pt-24 lg:pt-32">
+    <section class="px-4 lg:mb-10">
       <div>
-        <h1 class="mb-4 text-center text-2xl font-semibold">Fotografía con propósito y pasión</h1>
-        <p class="text-center text-lg text-balance">
-          Todo lo que ves empieza aquí: ideas, pruebas, risas y pasión por lo que hacemos. Somos un
-          equipo que disfruta el proceso tanto como el resultado, porque entendemos que las mejores
-          historias se construyen juntos.
-        </p>
-      </div>
-      <div class="h-72 overflow-hidden rounded-md">
-        <Image src={BackstageImage} alt="Backstage" class="h-full w-full object-cover" />
+        <h1 class="mb-6 text-center text-2xl font-semibold lg:mb-10 lg:text-4xl">
+          Fotografía con propósito y pasión
+        </h1>
+        <div class="flex flex-col gap-4 lg:gap-8">
+          <p class="mx-auto max-w-2xl text-center">
+            <span class="text-lg font-semibold">Todo lo que ves empieza aquí</span>
+            <span class="text-lg text-balance">
+              Ideas, pruebas, risas y pasión por lo que hacemos. Somos un equipo que disfruta el
+              proceso tanto como el resultado, porque entendemos que las mejores historias se
+              construyen juntos.
+            </span>
+          </p>
+          <div class="flex gap-4">
+            <Image
+              src={BackstageProduct}
+              alt="Backstage Product"
+              class="hidden h-100 w-full rounded-lg object-cover lg:block"
+            />
+            <Image
+              src={BackstageFashion}
+              alt="Backstage Fashion"
+              class="h-100 w-full rounded-lg object-cover"
+            />
+            <Image
+              src={BackstagePodcast}
+              alt="Backstage Podcast"
+              class="hidden h-100 w-full rounded-lg object-cover lg:block"
+            />
+          </div>
+        </div>
       </div>
     </section>
     <section class="gradient px-4 py-20">
-      <h2 class="mb-4 text-center text-2xl font-semibold">Conoce al equipo detrás del lente</h2>
+      <h2 class="mb-4 text-center text-2xl font-semibold lg:mb-10 lg:text-4xl">
+        Conoce al equipo detrás del lente
+      </h2>
       <p class="mb-10 text-center text-lg text-balance">
         Conoce a nuestro equipo de fotógrafos, editores y creativos que ponen el corazón en cada
         proyecto
       </p>
       <div class="flex flex-col gap-10">
-        <Member
+        <!-- <Member
           image={Placeholder}
           name="Nombres y Apellidos"
           role="Role del fotógrafo"
@@ -45,7 +70,7 @@ import { Image } from 'astro:assets';
           name="Nombres y Apellidos"
           role="Role del fotógrafo"
           description="La descripción del fotógrafo puede ser muy larga o muy corta."
-        />
+        /> -->
       </div>
     </section>
   </main>

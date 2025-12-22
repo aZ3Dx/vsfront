@@ -39,7 +39,13 @@ import { CLIENTS } from '@/consts/clients';
   import AutoScroll from 'embla-carousel-auto-scroll';
 
   const $emblaNode = document.querySelector('.clients-carousel') as HTMLDivElement;
-  const plugins: EmblaPluginType[] = [AutoScroll()];
+  const plugins: EmblaPluginType[] = [
+    AutoScroll({
+      breakpoints: {
+        '(min-width: 1024px)': { speed: 1 },
+      },
+    }),
+  ];
   const options: EmblaOptionsType = {
     loop: true,
   };

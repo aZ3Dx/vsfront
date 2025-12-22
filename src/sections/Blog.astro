@@ -7,11 +7,13 @@ import { getCollection } from 'astro:content';
 const blogs: Blog[] = await getCollection('blogs');
 ---
 
-<section class="relative py-20">
+<section class="relative py-20 lg:py-30">
   <div class="absolute top-0 h-10 w-full bg-linear-to-t from-transparent to-white"></div>
   <div class="absolute bottom-0 h-10 w-full bg-linear-to-b from-transparent to-white"></div>
   <div class="px-2">
-    <h3 class="blog-title mb-10 text-center text-2xl font-bold lg:text-4xl">REVISA NUESTRO BLOG</h3>
+    <h3 class="blog-title mb-10 text-center text-2xl font-bold lg:mb-20 lg:text-4xl">
+      REVISA NUESTRO BLOG
+    </h3>
     <div class="embla blogs-landing-carousel">
       <div class="embla__container">
         {
@@ -27,6 +29,7 @@ const blogs: Blog[] = await getCollection('blogs');
                 <h3 class="mb-4 text-xl font-bold">{blog.data.title}</h3>
                 <p class="mb-2">{blog.data.description}</p>
                 <Button
+                  class="hidden"
                   href={`/blogs/${blog.slug}`}
                   type="anchor"
                   text="Leer más"
@@ -68,6 +71,12 @@ const blogs: Blog[] = await getCollection('blogs');
   @media (min-width: 1024px) {
     .embla__slide {
       flex: 0 0 31%;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .embla__slide {
+      flex: 0 0 20%;
     }
   }
 </style>

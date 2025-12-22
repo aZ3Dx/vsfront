@@ -8,13 +8,27 @@ interface Props {
 }
 
 const { mediaFiles, preview = false } = Astro.props;
+
+const mediaToShow = preview ? mediaFiles.slice(0, 12) : mediaFiles;
 ---
 
-<div class="relative grid grid-cols-1 gap-2">
+<div class="relative grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
   {
-    mediaFiles.map((mediaFile) => (
-      <a href={mediaFile.url} class="glightbox" data-gallery="gallery">
-        <img src={mediaFile.url} class="rounded-lg" alt={mediaFile.alt} />
+    mediaToShow.map((mediaFile) => (
+      <a
+        href={`${mediaFile.url}_highres.webp`}
+        class="glightbox aspect-[3/4]"
+        data-gallery="gallery"
+      >
+        <div class="relative h-full w-full animate-pulse overflow-hidden rounded-lg bg-gray-200">
+          <img
+            src={`${mediaFile.url}_thumb.webp`}
+            alt={mediaFile.alt}
+            class="h-full w-full object-cover opacity-0 transition-opacity duration-300"
+            loading="lazy"
+            onload="this.closest('div').classList.remove('animate-pulse'); this.closest('div').classList.remove('bg-gray-200'); this.classList.remove('opacity-0')"
+          />
+        </div>
       </a>
     ))
   }
