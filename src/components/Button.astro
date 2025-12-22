@@ -38,7 +38,7 @@ const {
     >
       <a href={href} class="flex items-center gap-1">
         <slot name="icon-left" />
-        <span>{text}</span>
+        <span class="lg:text-lg">{text}</span>
         <slot name="icon-right" />
       </a>
     </div>
@@ -54,7 +54,7 @@ const {
       )}
     >
       <slot name="icon-left" />
-      {text}
+      <span class="lg:text-lg">{text}</span>
       <slot name="icon-right" />
     </button>
   )

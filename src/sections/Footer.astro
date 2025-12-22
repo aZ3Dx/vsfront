@@ -1,21 +1,42 @@
 ---
-import { Image } from 'astro:assets';
-import { SERVICES } from '@/consts/services';
-import LogoFull from '@/assets/images/LogoFullRounded.png';
-import IconBrandInstagram from '@/assets/icons/IconBrandInstagram.svg';
 import IconBrandFacebook from '@/assets/icons/IconBrandFacebook.svg';
+import IconBrandInstagram from '@/assets/icons/IconBrandInstagram.svg';
 import IconBrandYoutube from '@/assets/icons/IconBrandYoutube.svg';
+import LogoFull from '@/assets/images/LogoFullRounded.png';
+import { SERVICES } from '@/consts/services';
+import { Image } from 'astro:assets';
 ---
 
-<footer class="mx-auto bg-beige1 py-10">
-  <div class="mb-10 flex justify-center text-center">
-    <Image
-      class="h-24 w-24 rounded-full border-4 border-white"
-      src={LogoFull}
-      width={160}
-      height={160}
-      alt="Logo"
-    />
+<footer class="mx-auto bg-beige1 py-10 lg:grid lg:grid-cols-3">
+  <div class="flex flex-col">
+    <div class="mb-10 flex justify-center text-center">
+      <Image
+        class="h-24 w-24 rounded-full border-4 border-white"
+        src={LogoFull}
+        width={160}
+        height={160}
+        alt="Logo"
+      />
+    </div>
+    <div>
+      <ul class="mb-10 flex items-center justify-center gap-4">
+        <li>
+          <a href="https://www.instagram.com">
+            <IconBrandInstagram class="h-6 w-6" />
+          </a>
+        </li>
+        <li>
+          <a href="https://www.facebook.com">
+            <IconBrandFacebook class="h-6 w-6" />
+          </a>
+        </li>
+        <li>
+          <a href="https://www.youtube.com">
+            <IconBrandYoutube class="h-6 w-6" />
+          </a>
+        </li>
+      </ul>
+    </div>
   </div>
   <div class="mb-10">
     <ul class="text-center">
@@ -26,32 +47,17 @@ import IconBrandYoutube from '@/assets/icons/IconBrandYoutube.svg';
           </li>
         ))
       }
+    </ul>
+  </div>
+  <div class="mb-10">
+    <ul class="text-center">
       <li><a href="/portafolio">Portafolio</a></li>
       <li><a href="/sobre-nosotros">Sobre Nosotros</a></li>
       <li><a href="/contactanos">Contacto</a></li>
-      <li><a href="/blog">Blog</a></li>
+      <li><a href="/blog" class="disabled">Blog</a></li>
     </ul>
   </div>
-  <div>
-    <ul class="mb-10 flex items-center justify-center gap-4">
-      <li>
-        <a href="https://www.instagram.com">
-          <IconBrandInstagram class="h-6 w-6" />
-        </a>
-      </li>
-      <li>
-        <a href="https://www.facebook.com">
-          <IconBrandFacebook class="h-6 w-6" />
-        </a>
-      </li>
-      <li>
-        <a href="https://www.youtube.com">
-          <IconBrandYoutube class="h-6 w-6" />
-        </a>
-      </li>
-    </ul>
-  </div>
-  <div class="text-center">
+  <div class="text-center lg:col-span-3">
     <span class="text-xs">Copyright &copy; 2025 Visual Studio</span>
   </div>
 </footer>

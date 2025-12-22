@@ -15,13 +15,13 @@ const { service } = Astro.props;
 ---
 
 <Layout>
-  <main class="pt-20">
+  <main class="pt-20 lg:pt-30">
     <section class="bg-beige1 px-4 py-8">
-      <h1 class="mb-4 text-center text-2xl font-semibold">Portafolio</h1>
-      <h2 class="mb-2 text-center text-xl">{service.name}</h2>
-      <p class="text-center text-balance">{service.portfolioDescription}</p>
+      <h1 class="mb-4 text-center text-2xl font-semibold lg:text-4xl">Portafolio</h1>
+      <h2 class="mb-2 text-center text-xl font-semibold">{service.name}</h2>
+      <p class="text-center text-lg text-balance">{service.portfolioDescription}</p>
     </section>
-    <section class="py-10 px-6">
+    <section class="px-6 py-10">
       <Gallery mediaFiles={service.allMediaFiles} />
     </section>
   </main>

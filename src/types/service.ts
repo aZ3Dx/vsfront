@@ -11,6 +11,7 @@ export type MediaFile = {
   url: string;
   type: MediaType;
   alt: string;
+  orientation: 'landscape' | 'portrait';
 };
 
 export type Service = {
@@ -19,7 +20,7 @@ export type Service = {
   description: string;
   portfolioDescription: string;
   points: Point[];
-  image: ImageMetadata;
-  carouselImagesUrl: string[];
+  image: MediaFile;
   allMediaFiles: MediaFile[];
+  carouselMediaFiles: MediaFile[];
 };

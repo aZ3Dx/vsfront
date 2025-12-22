@@ -3,7 +3,7 @@ import { CLIENTS } from '@/consts/clients';
 ---
 
 <section class="bg-midnight py-10">
-  <h3 class="mb-6 text-center text-xl font-bold text-white">CONFIARON EN NOSOTROS</h3>
+  <h3 class="mb-6 text-center text-xl font-bold text-white lg:text-4xl">CONFIARON EN NOSOTROS</h3>
   <div class="embla clients-carousel">
     <div class="embla__container">
       {
@@ -39,7 +39,13 @@ import { CLIENTS } from '@/consts/clients';
   import AutoScroll from 'embla-carousel-auto-scroll';
 
   const $emblaNode = document.querySelector('.clients-carousel') as HTMLDivElement;
-  const plugins: EmblaPluginType[] = [AutoScroll()];
+  const plugins: EmblaPluginType[] = [
+    AutoScroll({
+      breakpoints: {
+        '(min-width: 1024px)': { speed: 1 },
+      },
+    }),
+  ];
   const options: EmblaOptionsType = {
     loop: true,
   };

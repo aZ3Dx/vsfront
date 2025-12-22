@@ -10,9 +10,10 @@ import { Image } from 'astro:assets';
 const isLanding = Astro.url.pathname === '/';
 ---
 
-<header class="fixed z-20 flex h-18 w-full items-center">
+<header class="header-container fixed z-20 flex h-18 w-full items-center lg:h-24">
+  <!-- Header Mobile -->
   <div
-    class=`header relative box-content flex w-full items-center justify-center border-b border-transparent py-3 transition-all duration-300
+    class=`header-mobile relative box-content flex w-full items-center justify-center border-b border-transparent py-3 transition-all duration-300 lg:hidden
     ${isLanding ? 'text-white' : 'text-midnight'}`
   >
     <div class="menu-button absolute left-4">
@@ -26,6 +27,43 @@ const isLanding = Astro.url.pathname === '/';
     <a href="/" class="inline-block pl-2 font-heading text-xl font-semibold text-inherit">
       Visual Studio
     </a>
+  </div>
+  <!-- Header Desktop -->
+  <div
+    class="header-desktop relative box-content hidden h-full w-full transition-all duration-300 lg:block"
+    class:list={{ 'text-white': isLanding, 'text-midnight': !isLanding }}
+  >
+    <nav class="mx-auto h-full max-w-6xl">
+      <ul class="grid h-full grid-cols-7 place-items-center gap-4 font-semibold uppercase">
+        <li><a href="/">Inicio</a></li>
+        <li class="services-link-desktop relative flex items-center gap-1">
+          <span class="cursor-pointer">Servicios</span>
+          <IconTriangleFilled
+            class="mt-[2px] h-2 w-2 rotate-180 cursor-pointer transition-all duration-300"
+          />
+          <ul
+            class="submenu-services-desktop absolute top-10 hidden w-56 list-disc rounded-md bg-beige1/90 p-2 pl-6 text-midnight backdrop-blur-lg"
+          >
+            {
+              SERVICES.map((service) => (
+                <a href={`/servicios/${service.slug}`} class="group">
+                  <li class="capitalize group-hover:underline">{service.name}</li>
+                </a>
+              ))
+            }
+          </ul>
+        </li>
+        <li><a href="/portafolio">Portafolio</a></li>
+        <div>
+          <a href="/">
+            <Image src={LogoFull} class="h-18 w-18" width={100} height={100} alt="Logo" />
+          </a>
+        </div>
+        <li><a href="/blog" class="disabled">Blog</a></li>
+        <li class="text-center"><a href="/sobre-nosotros">Sobre Nosotros</a></li>
+        <li><a href="/contactanos">Contactanos</a></li>
+      </ul>
+    </nav>
   </div>
   <!-- Menu Mobile -->
   <nav class="menu-mobile fixed top-0 left-0 hidden h-lvh w-3/4 bg-beige1">
@@ -48,7 +86,7 @@ const isLanding = Astro.url.pathname === '/';
         }
       </ul>
       <li><a href="/portafolio">Portafolio</a></li>
-      <li><a href="/blog">Blog</a></li>
+      <li><a href="/blog" class="disabled">Blog</a></li>
       <li><a href="/sobre-nosotros">Sobre Nosotros</a></li>
       <li><a href="/contactanos">Contáctanos</a></li>
     </ul>
@@ -67,11 +105,17 @@ const isLanding = Astro.url.pathname === '/';
   const $menuMobile = document.querySelector('.menu-mobile') as HTMLDivElement;
   const $closeMenuButton = document.querySelector('.close-menu-mobile') as HTMLDivElement;
   const $closeArea = document.querySelector('.close-area') as HTMLDivElement;
-  const $header = document.querySelector('.header') as HTMLElement;
+  const $headerContainer = document.querySelector('.header-container') as HTMLDivElement;
+  const $headerMobile = document.querySelector('.header-mobile') as HTMLElement;
+  const $headerDesktop = document.querySelector('.header-desktop') as HTMLElement;
   const $linksContainer = document.querySelector('.links-container') as HTMLUListElement;
 
   const $servicesLink = document.querySelector('.services-link') as HTMLLIElement;
+  const $servicesLinkDesktop = document.querySelector('.services-link-desktop') as HTMLLIElement;
   const $submenuServices = document.querySelector('.submenu-services') as HTMLDivElement;
+  const $submenuServicesDesktop = document.querySelector(
+    '.submenu-services-desktop',
+  ) as HTMLUListElement;
 
   $servicesLink.addEventListener('click', () => {
     const isHidden = $submenuServices.classList.contains('hidden');
@@ -103,6 +147,46 @@ const isLanding = Astro.url.pathname === '/';
       });
     }
   });
+  let closeTimeout: NodeJS.Timeout;
+
+  $servicesLinkDesktop.addEventListener('mouseenter', () => {
+    clearTimeout(closeTimeout);
+    if ($submenuServicesDesktop.classList.contains('hidden')) {
+      $submenuServicesDesktop.classList.remove('hidden');
+      $servicesLinkDesktop.querySelector('svg')?.classList.remove('rotate-180');
+      gsap.fromTo($submenuServicesDesktop, { opacity: 0 }, { opacity: 1, duration: 0.3 });
+    }
+  });
+
+  $servicesLinkDesktop.addEventListener('mouseleave', () => {
+    closeTimeout = setTimeout(() => {
+      $servicesLinkDesktop.querySelector('svg')?.classList.add('rotate-180');
+      gsap.to($submenuServicesDesktop, {
+        opacity: 0,
+        duration: 0.3,
+        ease: 'power2.in',
+        onComplete: () => {
+          $submenuServicesDesktop.classList.add('hidden');
+        },
+      });
+    }, 500); // margen de 300 ms de tolerancia
+  });
+
+  // también mantener abierto si pasa al submenu directamente
+  // $submenuServicesDesktop.addEventListener('mouseenter', () => clearTimeout(closeTimeout));
+  // $submenuServicesDesktop.addEventListener('mouseleave', () => {
+  //   closeTimeout = setTimeout(() => {
+  //     $servicesLinkDesktop.querySelector('svg')?.classList.add('rotate-180');
+  //     gsap.to($submenuServicesDesktop, {
+  //       opacity: 0,
+  //       duration: 0.3,
+  //       ease: 'power2.in',
+  //       onComplete: () => {
+  //         $submenuServicesDesktop.classList.add('hidden');
+  //       },
+  //     });
+  //   }, 500);
+  // });
 
   $menuButton.addEventListener('click', () => {
     $menuMobile.classList.remove('hidden');
@@ -143,12 +227,21 @@ const isLanding = Astro.url.pathname === '/';
 
   function checkHeaderScroll() {
     if (window.scrollY > 50) {
-      $header.classList.add('header-scrolled');
+      $headerMobile.classList.add('header-scrolled');
+      $headerContainer.classList.add('header-container-desktop-scrolled');
     } else {
-      $header.classList.remove('header-scrolled');
+      $headerMobile.classList.remove('header-scrolled');
+      $headerContainer.classList.remove('header-container-desktop-scrolled');
+    }
+  }
+
+  function checkCloseMobile() {
+    if (window.innerWidth > 1024) {
+      closeMenu();
     }
   }
 
   checkHeaderScroll();
   window.addEventListener('scroll', checkHeaderScroll);
+  window.addEventListener('resize', checkCloseMobile);
 </script>

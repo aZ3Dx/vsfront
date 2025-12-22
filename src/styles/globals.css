@@ -37,4 +37,21 @@
   .header-scrolled {
     @apply border-b !border-white/20 bg-white/50 !text-midnight backdrop-blur-md;
   }
+
+  .header-container-desktop-scrolled {
+    .header-desktop {
+      @apply bg-white/50 !text-midnight backdrop-blur-md;
+    }
+    /* img {
+      @apply !h-12 !w-12;
+    } */
+    /* li {
+      @apply !text-sm;
+    } */
+  }
+
+  a.disabled {
+    pointer-events: none;
+    cursor: not-allowed;
+  }
 }
