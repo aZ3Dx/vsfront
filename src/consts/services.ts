@@ -1,4 +1,5 @@
-import type { MediaFile, Service } from '@/types/service';
+import type { MediaFile } from '@/types/mediaFile';
+import type { Service } from '@/types/service';
 
 const MEDIA_URL = import.meta.env.MEDIA_URL;
 

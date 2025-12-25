@@ -6,29 +6,32 @@ import User4 from '@/assets/images/users/User4.png';
 
 export const COMMENTS: Comment[] = [
   {
-    comment: 'Necesitaba fotos profesionales de mis productos para la tienda online y realmente marcaron la diferencia. Ahora se ven mucho más atractivos y las ventas han aumentado.',
+    comment:
+      'He contratado a Visual Studio en dos ocasiones para mis fotos de marca personal y la experiencia ha sido excepcional en ambas. Lo que más valoro es su rapidez en la entrega sin sacrificar la calidad del trabajo, además de su trato amable y cercano que hace que cada sesión sea muy cómoda. Confío tanto en su trabajo que constantemente los refiero con mis clientes y he recomendado sus servicios entre los miembros de mi asociación. Es un equipo profesional que cumple con lo que promete y supera las expectativas. Sin duda seguiré trabajando con ellos y recomendándolos.',
     rating: 5,
-    userName: 'Carolina Torres',
-    userInfo: 'Emprendedora de e-commerce',
+    userName: 'Carolina Coda',
+    userInfo: 'Cargo o Info extra',
     userPhoto: User1,
   },
   {
     comment:
-      'Contratamos a Visual Studio para las fotos de un evento corporativo y quedamos encantados. Capturaron momentos claves sin interrumpir la dinámica, y las fotos transmiten justo la energía que queríamos mostrar.',
+      'Contraté a Visual Studio porque buscaba un equipo responsable con buenas herramientas para la creación de mi Podcast. Y han reflejado tal cual la visión que teníamos para el proyecto. Lo recomiendo 100%.',
     rating: 5,
-    userName: 'Luis Ramírez',
-    userInfo: 'Gerente de Marketing',
+    userName: 'Moises Pino',
+    userInfo: 'Cargo o Info extra',
     userPhoto: User2,
   },
   {
-    comment: 'Trabajamos juntos en la producción de un podcast y fue excelente. El resultado final quedó muy profesional, con un sonido impecable y un montaje que superó mis expectativas.',
+    comment:
+      'Vengo trabajando con Visual Studio más de 5 años y la calidad de trabajo es excelente, el trato y sobre todo que entienden lo que busca uno en cada sesión . Resalto siempre su profesionalismo y su eficacia para la entrega de material solicitado. Yo sólo trabajo con ellos ya que tienen toda mi confianza.',
     rating: 5,
-    userName: 'Javier Paredes',
-    userInfo: 'Consultor empresarial',
+    userName: 'Xiomara Meza',
+    userInfo: 'Gerente Comercial Luka Infusiones',
     userPhoto: User3,
   },
   {
-    comment: 'Me gustó mucho la cercanía del equipo, siempre atentos a cada detalle. Hicieron de un evento familiar un recuerdo precioso, natural y lleno de vida.',
+    comment:
+      'Me gustó mucho la cercanía del equipo, siempre atentos a cada detalle. Hicieron de un evento familiar un recuerdo precioso, natural y lleno de vida.',
     rating: 5,
     userName: 'María Fernanda López',
     userInfo: 'Organizadora de eventos sociales',

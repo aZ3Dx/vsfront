@@ -1,17 +1,9 @@
 import type { ImageMetadata } from 'astro';
+import type { MediaFile } from './mediaFile';
 
 type Point = {
   title: string;
   description: string;
-};
-
-type MediaType = 'image' | 'video';
-
-export type MediaFile = {
-  url: string;
-  type: MediaType;
-  alt: string;
-  orientation: 'landscape' | 'portrait';
 };
 
 export type Service = {
