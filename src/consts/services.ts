@@ -499,7 +499,7 @@ export const SERVICES: Service[] = addCarouselImages([
     image: {
       url: '',
       type: 'image',
-      alt: 'AKRON-PHRAMACEUTICA-2-12682',
+      alt: 'Ynn Cafeteria',
       orientation: 'landscape',
     },
     carouselMediaFiles: [
@@ -610,25 +610,67 @@ export const SERVICES: Service[] = addCarouselImages([
       {
         url: '',
         type: 'image',
-        alt: 'AKRON-PHRAMACEUTICA-2-12682',
-        orientation: 'landscape',
-      },
-      {
-        url: '',
-        type: 'image',
-        alt: 'BAOZ-4046',
+        alt: 'Be Healthy Producto 2',
         orientation: 'portrait',
       },
       {
         url: '',
         type: 'image',
-        alt: 'BAOZ-4076',
+        alt: 'Be Healthy Producto 3',
+        orientation: 'portrait',
+      },
+      {
+        url: '',
+        type: 'image',
+        alt: 'Be Healthy Producto',
+        orientation: 'portrait',
+      },
+      {
+        url: '',
+        type: 'image',
+        alt: 'Biangel Producto 2',
+        orientation: 'portrait',
+      },
+      {
+        url: '',
+        type: 'image',
+        alt: 'Biangel Producto 3',
+        orientation: 'portrait',
+      },
+      {
+        url: '',
+        type: 'image',
+        alt: 'Biangel Producto',
         orientation: 'portrait',
       },
       {
         url: '',
         type: 'image',
         alt: 'CLAUDIA-ZSA-4938',
+        orientation: 'portrait',
+      },
+      {
+        url: '',
+        type: 'image',
+        alt: 'Descanso Ancestral',
+        orientation: 'landscape',
+      },
+      {
+        url: '',
+        type: 'image',
+        alt: 'ENARMONIA-Producto 1',
+        orientation: 'portrait',
+      },
+      {
+        url: '',
+        type: 'image',
+        alt: 'ENARMONIA-Producto 2',
+        orientation: 'portrait',
+      },
+      {
+        url: '',
+        type: 'image',
+        alt: 'ENARMONIA-Producto-3',
         orientation: 'portrait',
       },
       {
@@ -754,6 +796,18 @@ export const SERVICES: Service[] = addCarouselImages([
       {
         url: '',
         type: 'image',
+        alt: 'Itswood Navidad',
+        orientation: 'portrait',
+      },
+      {
+        url: '',
+        type: 'image',
+        alt: 'LUKA CAJAS',
+        orientation: 'landscape',
+      },
+      {
+        url: '',
+        type: 'image',
         alt: 'LUKA-2401',
         orientation: 'portrait',
       },
@@ -778,32 +832,44 @@ export const SERVICES: Service[] = addCarouselImages([
       {
         url: '',
         type: 'image',
-        alt: 'ZAS-ZAS-10378',
+        alt: 'Taller 1',
         orientation: 'portrait',
       },
       {
         url: '',
         type: 'image',
-        alt: 'ZAS-ZAS-10384',
+        alt: 'Taller 2',
         orientation: 'portrait',
       },
       {
         url: '',
         type: 'image',
-        alt: 'ZAS-ZAS-10448',
+        alt: 'Taller 3',
         orientation: 'portrait',
       },
       {
         url: '',
         type: 'image',
-        alt: 'ZAS-ZAS-10460',
+        alt: 'Tournasol Producto 1',
         orientation: 'portrait',
       },
       {
         url: '',
         type: 'image',
-        alt: 'ZAS-ZAS-10475',
+        alt: 'Tournasol Producto 2',
         orientation: 'portrait',
+      },
+      {
+        url: '',
+        type: 'image',
+        alt: 'Tournasol Producto 3',
+        orientation: 'portrait',
+      },
+      {
+        url: '',
+        type: 'image',
+        alt: 'Ynn Cafeteria',
+        orientation: 'landscape',
       },
       {
         url: '',

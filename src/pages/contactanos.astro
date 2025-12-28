@@ -6,6 +6,7 @@ import IconMail from '@/assets/icons/IconMail.svg';
 import LightBoxImage from '@/assets/images/LightBox.png';
 import Question from '@/components/Question.astro';
 import { QUESTIONS } from '@/consts/questions';
+import { SOCIAL_MEDIAS } from '@/consts/socialMedias';
 import Layout from '@/layouts/Layout.astro';
 import { Image } from 'astro:assets';
 ---
@@ -30,19 +31,19 @@ import { Image } from 'astro:assets';
         <div class="grid grid-cols-1 gap-2 font-heading max-lg:p-4">
           <div class="flex items-center gap-2 rounded-lg bg-midnight p-4 text-white">
             <IconBrandWhatsapp class="h-8 w-8" />
-            <p>(+51) 987 987 987</p>
+            <p>{SOCIAL_MEDIAS.WhatsApp.name}</p>
           </div>
           <div class="flex items-center gap-2 rounded-lg bg-midnight p-4 text-white">
             <IconBrandInstagram class="h-8 w-8" />
-            <p>@visual_studio</p>
+            <p>{SOCIAL_MEDIAS.Instagram.name}</p>
           </div>
           <div class="flex items-center gap-2 rounded-lg bg-midnight p-4 text-white">
             <IconBrandFacebook class="h-8 w-8" />
-            <p>visual_studio</p>
+            <p>{SOCIAL_MEDIAS.Facebook.name}</p>
           </div>
           <div class="flex items-center gap-2 rounded-lg bg-midnight p-4 text-white">
             <IconMail class="h-8 w-8" />
-            <p>visual_studio@gmail.com</p>
+            <p>{SOCIAL_MEDIAS.Email.name}</p>
           </div>
         </div>
         <Image

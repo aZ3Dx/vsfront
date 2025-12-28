@@ -4,6 +4,7 @@ import IconBrandInstagram from '@/assets/icons/IconBrandInstagram.svg';
 import IconBrandYoutube from '@/assets/icons/IconBrandYoutube.svg';
 import LogoFull from '@/assets/images/LogoFullRounded.png';
 import { SERVICES } from '@/consts/services';
+import { SOCIAL_MEDIAS } from '@/consts/socialMedias';
 import { Image } from 'astro:assets';
 ---
 
@@ -21,12 +22,12 @@ import { Image } from 'astro:assets';
     <div>
       <ul class="mb-10 flex items-center justify-center gap-4">
         <li>
-          <a href="https://www.instagram.com">
+          <a href={SOCIAL_MEDIAS.Instagram.link}>
             <IconBrandInstagram class="h-6 w-6" />
           </a>
         </li>
         <li>
-          <a href="https://www.facebook.com">
+          <a href={SOCIAL_MEDIAS.Facebook.link}>
             <IconBrandFacebook class="h-6 w-6" />
           </a>
         </li>
