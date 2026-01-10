@@ -56,7 +56,7 @@ console.log(service);
       <div class="mx-auto max-w-6xl lg:grid lg:grid-cols-3">
         {
           service.points.map((point) => (
-            <div class="point-service-container flex flex-col gap-4 py-6 pl-4">
+            <div class="point-service-container flex flex-col gap-4 py-6 pl-4 max-md:pr-4">
               <div class="flex items-center gap-2">
                 <IconNorthStar stroke-width={1} class="h-5 w-5" />
                 <h2 class="text-lg font-semibold">{point.title}</h2>
@@ -69,20 +69,21 @@ console.log(service);
     </section>
     {
       service.videos && service.videos.length > 0 && (
-        <section class="py-10">
+        <section class="px-6 py-10">
           <h3 class="mb-8 text-center text-2xl font-semibold">Videos</h3>
           <div class="flex flex-col items-center gap-4">
             {service.videos.map((videoId) => (
-              <iframe
-                width="560"
-                height="315"
-                src={`https://www.youtube.com/embed/${videoId}`}
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen
-              />
+              <div class="mx-auto aspect-video w-full max-w-4xl">
+                <iframe
+                  class="h-full w-full"
+                  src={`https://www.youtube.com/embed/${videoId}`}
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
+                />
+              </div>
             ))}
           </div>
         </section>
