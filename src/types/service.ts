@@ -12,6 +12,7 @@ export type Service = {
   description: string;
   portfolioDescription: string;
   points: Point[];
+  videos?: string[];
   image: MediaFile;
   allMediaFiles: MediaFile[];
   carouselMediaFiles: MediaFile[];

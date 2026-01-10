@@ -1,8 +1,11 @@
 ---
-import Placeholder from '@/assets/images/Placeholder.jpg';
 import SobreNosotros1 from '@/assets/images/SobreNosotros1.webp';
 import SobreNosotros2 from '@/assets/images/SobreNosotros2.webp';
 import SobreNosotros3 from '@/assets/images/SobreNosotros3.webp';
+import CARMENGROUP from '@/assets/images/users/CARMEN_GROUP.webp';
+import CAROLINAGROUP from '@/assets/images/users/CAROLINA_GROUP.webp';
+import MOISESGROUP from '@/assets/images/users/MOISES_GROUP.webp';
+import XIOMARAGROUP from '@/assets/images/users/XIOMARA_GROUP.webp';
 import Member from '@/components/Member.astro';
 import Layout from '@/layouts/Layout.astro';
 import { Image } from 'astro:assets';
@@ -46,31 +49,37 @@ import { Image } from 'astro:assets';
     </section>
     <section class="gradient px-4 py-20">
       <h2 class="mb-4 text-center text-2xl font-semibold lg:mb-10 lg:text-4xl">
-        Conoce al equipo detrás del lente
+        Historias que creamos junto a nuestros clientes
       </h2>
       <p class="mb-10 text-center text-lg text-balance">
-        Conoce a nuestro equipo de fotógrafos, editores y creativos que ponen el corazón en cada
-        proyecto
+        Más que un equipo, somos compañeros de viaje creativo. Cada proyecto nace del vínculo con
+        quienes confían en nosotros.
       </p>
-      <div class="flex flex-col gap-10">
-        <!-- <Member
-          image={Placeholder}
-          name="Nombres y Apellidos"
-          role="Role del fotógrafo"
-          description="La descripción del fotógrafo puede ser muy larga o muy corta."
+      <div class="mx-auto grid max-w-lg grid-cols-1 gap-10 xl:max-w-6xl xl:grid-cols-2">
+        <Member
+          image={CAROLINAGROUP}
+          title="Fotografía en"
+          location="Lima, Perú"
+          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tincidunt pretium rutrum. Donec vulputate scelerisque mauris, sit amet dignissim ligula."
         />
         <Member
-          image={Placeholder}
-          name="Nombres y Apellidos"
-          role="Role del fotógrafo"
-          description="La descripción del fotógrafo puede ser muy larga o muy corta."
+          image={MOISESGROUP}
+          title="Fotografía en"
+          location="Lima, Perú"
+          description="Quisque nec hendrerit lacus, id scelerisque erat. Nunc sed felis non dolor pulvinar fringilla quis eu augue. Nulla consequat lacus ac quam maximus finibus."
         />
         <Member
-          image={Placeholder}
-          name="Nombres y Apellidos"
-          role="Role del fotógrafo"
-          description="La descripción del fotógrafo puede ser muy larga o muy corta."
-        /> -->
+          image={CARMENGROUP}
+          title="Fotografía en"
+          location="Lima, Perú"
+          description="Aenean feugiat accumsan pharetra. Etiam vel euismod ipsum, ac rutrum sapien. Phasellus molestie est sed odio porta ornare. Cras tincidunt dolor a metus interdum laoreet."
+        />
+        <Member
+          image={XIOMARAGROUP}
+          title="Fotografía en"
+          location="Lima, Perú"
+          description="Morbi volutpat, nibh vitae luctus euismod, diam tellus mattis erat, id tempus ipsum urna quis mauris. Nunc sed elit at massa dictum vulputate at et nunc. Sed quis luctus metus, sed ultricies felis."
+        />
       </div>
     </section>
   </main>

@@ -2,12 +2,12 @@ import type { Comment } from '@/types/comment';
 import CAROLINA from '@/assets/images/users/CAROLINA.webp';
 import MOISES from '@/assets/images/users/MOISES.webp';
 import XIOMARA from '@/assets/images/users/XIOMARA.webp';
-import User4 from '@/assets/images/users/User4.png';
+import CARMEN from '@/assets/images/users/CARMEN.webp';
 
 export const COMMENTS: Comment[] = [
   {
     comment:
-      'He contratado a Visual Studio en dos ocasiones para mis fotos de marca personal y la experiencia ha sido excepcional en ambas. Lo que más valoro es su rapidez en la entrega sin sacrificar la calidad del trabajo, además de su trato amable y cercano que hace que cada sesión sea muy cómoda. Confío tanto en su trabajo que constantemente los refiero con mis clientes y he recomendado sus servicios entre los miembros de mi asociación. Es un equipo profesional que cumple con lo que promete y supera las expectativas. Sin duda seguiré trabajando con ellos y recomendándolos.',
+      'He contratado a Visual Studio en dos ocasiones para mis fotos de marca personal y la experiencia ha sido excepcional en ambas. Lo que más valoro es su rapidez en la entrega sin sacrificar la calidad del trabajo, además de su trato amable y cercano que hace que cada sesión sea muy cómoda. Confío tanto en su trabajo que constantemente los refiero con mis clientes y he recomendado sus servicios entre los miembros de mi asociación.',
     rating: 5,
     userName: 'Carolina Coda',
     userInfo: 'Gerente Marketing AICI',
@@ -31,10 +31,10 @@ export const COMMENTS: Comment[] = [
   },
   {
     comment:
-      'Me gustó mucho la cercanía del equipo, siempre atentos a cada detalle. Hicieron de un evento familiar un recuerdo precioso, natural y lleno de vida.',
+      'Llegamos a Visual Studio por redes sociales y apostamos por una nueva opción y no pudimos haber tomado una mejor decisión, desde el ambiente para tomar fotos, muy profesional, hasta la persona detrás del lente, nos hizo sentir muy cómodos al momento de tomar fotos para nuestra empresa.',
     rating: 5,
-    userName: 'María Fernanda López',
-    userInfo: 'Organizadora de eventos sociales',
-    userPhoto: User4,
+    userName: 'Carmen Montalvo',
+    userInfo: 'CEO de BAOZ',
+    userPhoto: CARMEN,
   },
 ];

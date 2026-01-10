@@ -67,6 +67,27 @@ console.log(service);
         }
       </div>
     </section>
+    {
+      service.videos && service.videos.length > 0 && (
+        <section class="py-10">
+          <h3 class="mb-8 text-center text-2xl font-semibold">Videos</h3>
+          <div class="flex flex-col items-center gap-4">
+            {service.videos.map((videoId) => (
+              <iframe
+                width="560"
+                height="315"
+                src={`https://www.youtube.com/embed/${videoId}`}
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              />
+            ))}
+          </div>
+        </section>
+      )
+    }
     <section class="portfolio-services-section py-10">
       <h3 class="mb-8 text-center text-2xl font-semibold">Portafolio</h3>
       <div class="px-6">
@@ -192,13 +213,21 @@ console.log(service);
 </script>
 
 <script>
-  import type { EmblaOptionsType } from 'embla-carousel';
+  import type { EmblaOptionsType, EmblaPluginType } from 'embla-carousel';
   import EmblaCarousel from 'embla-carousel';
+  import AutoPlay from 'embla-carousel-autoplay';
 
   const $emblaNode = document.querySelector('.service-header-carousel') as HTMLDivElement;
+  const plugins: EmblaPluginType[] = [
+    AutoPlay({
+      delay: 2000,
+      stopOnInteraction: false,
+      stopOnFocusIn: false,
+    }),
+  ];
   const options: EmblaOptionsType = {
     loop: true,
   };
 
-  const emblaApi = EmblaCarousel($emblaNode, options);
+  const emblaApi = EmblaCarousel($emblaNode, options, plugins);
 </script>

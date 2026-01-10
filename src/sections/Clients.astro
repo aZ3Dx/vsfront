@@ -11,7 +11,7 @@ import { CLIENTS } from '@/consts/clients';
       {
         CLIENTS.map((client) => (
           <div class="embla__slide my-auto shrink-0 px-4">
-            <img src={`${client.image.url}.webp`} alt={client.image.alt} class="h-auto w-24" />
+            <img src={`${client.image.url}.webp`} alt={client.image.alt} class="h-auto w-24 2xl:w-32" />
           </div>
         ))
       }
@@ -27,7 +27,7 @@ import { CLIENTS } from '@/consts/clients';
     display: flex;
     user-select: none;
   }
-  /* .embla__slide {
+  .embla__slide {
     flex: 0 0 20%;
     min-width: 0;
     display: flex;
@@ -48,9 +48,9 @@ import { CLIENTS } from '@/consts/clients';
 
   @media (min-width: 1536px) {
     .embla__slide {
-      flex: 0 0 8%;
+      flex: 0 0 12%;
     }
-  } */
+  }
 </style>
 
 <script>
