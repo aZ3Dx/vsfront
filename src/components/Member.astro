@@ -14,15 +14,15 @@ interface Props {
 const { image, title, location, description } = Astro.props as Props;
 ---
 
-<div class="flex gap-2">
-  <div class="relative shrink-0 overflow-hidden rounded-lg border-3 border-black">
-    <Image src={image} alt={title} height={200} width={200} class="" />
+<div class="flex gap-2 max-md:flex-col max-md:items-center">
+  <div class="relative shrink-0 overflow-hidden rounded-lg border-3 border-black max-md:w-fit">
+    <Image src={image} alt={title} height={200} width={200} />
     <IconBorderCornerSquare class="absolute top-2 left-2 h-4 w-4" />
     <IconBorderCornerSquare class="absolute right-2 bottom-2 h-4 w-4 rotate-180" />
     <IconBorderCornerSquare class="absolute top-2 right-2 h-4 w-4 rotate-90" />
     <IconBorderCornerSquare class="absolute bottom-2 left-2 h-4 w-4 rotate-270" />
   </div>
-  <div class="flex flex-col justify-center gap-2">
+  <div class="flex flex-col justify-center gap-2 max-md:text-center">
     <div>
       <h4 class="text-lg leading-5 font-semibold">{title}</h4>
       <p class="text-sm">
