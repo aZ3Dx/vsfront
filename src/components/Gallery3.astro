@@ -1,5 +1,5 @@
 ---
-import type { MediaFile } from '@/types/service';
+import type { MediaFile } from '@/types/mediaFile';
 import 'photoswipe/style.css';
 
 interface Props {
@@ -12,10 +12,7 @@ const { mediaFiles, preview = false } = Astro.props;
 const mediaToShow = preview ? mediaFiles.slice(0, 3) : mediaFiles.slice(0, 20);
 ---
 
-<div
-  id="my-gallery"
-  class="pswp-gallery pswp-gallery--single-column"
->
+<div id="my-gallery" class="pswp-gallery pswp-gallery--single-column">
   {
     mediaToShow.map((mediaFile) => (
       <a

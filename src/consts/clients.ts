@@ -1,45 +1,144 @@
 import type { Client } from '@/types/client';
-import ClientImage from '@/assets/images/clients/client1.webp';
 
-export const CLIENTS: Client[] = [
+const MEDIA_URL = import.meta.env.MEDIA_URL;
+
+const addImages = (clients: Client[]) => {
+  return clients.map((client) => {
+    return {
+      ...client,
+      image: {
+        ...client.image,
+        url: `${MEDIA_URL}/clients/${client.image.alt}`,
+      },
+    };
+  });
+};
+
+export const CLIENTS: Client[] = addImages([
   {
-    name: 'Empresa 1',
-    image: ClientImage,
+    name: 'Tournasol',
+    image: {
+      url: '',
+      type: 'image',
+      alt: 'Tournasol Logo',
+      orientation: 'landscape',
+    },
   },
   {
-    name: 'Empresa 2',
-    image: ClientImage,
+    name: 'SAZA',
+    image: {
+      url: '',
+      type: 'image',
+      alt: 'SAZA logo',
+      orientation: 'landscape',
+    },
   },
   {
-    name: 'Empresa 3',
-    image: ClientImage,
+    name: 'Micro-Tech',
+    image: {
+      url: '',
+      type: 'image',
+      alt: 'Micro-Tech logo',
+      orientation: 'landscape',
+    },
   },
   {
-    name: 'Empresa 4',
-    image: ClientImage,
+    name: 'Limasoft',
+    image: {
+      url: '',
+      type: 'image',
+      alt: 'Limasoft Logo',
+      orientation: 'landscape',
+    },
   },
   {
-    name: 'Empresa 5',
-    image: ClientImage,
+    name: 'JW-Marriott',
+    image: {
+      url: '',
+      type: 'image',
+      alt: 'JW-Marriott Logo',
+      orientation: 'landscape',
+    },
   },
   {
-    name: 'Empresa 6',
-    image: ClientImage,
+    name: 'ItsWood',
+    image: {
+      url: '',
+      type: 'image',
+      alt: 'ItsWood Logo',
+      orientation: 'landscape',
+    },
   },
   {
-    name: 'Empresa 7',
-    image: ClientImage,
+    name: 'HanaHandmade',
+    image: {
+      url: '',
+      type: 'image',
+      alt: 'HanaHandmade Logo',
+      orientation: 'landscape',
+    },
   },
   {
-    name: 'Empresa 8',
-    image: ClientImage,
+    name: 'Dispolab',
+    image: {
+      url: '',
+      type: 'image',
+      alt: 'Dispolab',
+      orientation: 'landscape',
+    },
   },
   {
-    name: 'Empresa 9',
-    image: ClientImage,
+    name: 'Courtyard',
+    image: {
+      url: '',
+      type: 'image',
+      alt: 'Courtyard Logo',
+      orientation: 'landscape',
+    },
   },
   {
-    name: 'Empresa 10',
-    image: ClientImage,
+    name: 'Cenergia',
+    image: {
+      url: '',
+      type: 'image',
+      alt: 'Cenergia Logo',
+      orientation: 'landscape',
+    },
   },
-];
+  {
+    name: 'Baoz',
+    image: {
+      url: '',
+      type: 'image',
+      alt: 'Baoz Logo',
+      orientation: 'landscape',
+    },
+  },
+  {
+    name: 'AICI',
+    image: {
+      url: '',
+      type: 'image',
+      alt: 'AICI Logo',
+      orientation: 'landscape',
+    },
+  },
+  {
+    name: 'Comfy',
+    image: {
+      url: '',
+      type: 'image',
+      alt: 'Comfy Logo',
+      orientation: 'landscape',
+    },
+  },
+  {
+    name: 'FrancescaMaxera',
+    image: {
+      url: '',
+      type: 'image',
+      alt: 'FrancescaMaxera',
+      orientation: 'landscape',
+    },
+  },
+]);

@@ -1,4 +1,5 @@
-import type { MediaFile, Service } from '@/types/service';
+import type { MediaFile } from '@/types/mediaFile';
+import type { Service } from '@/types/service';
 
 const MEDIA_URL = import.meta.env.MEDIA_URL;
 
@@ -32,7 +33,7 @@ const addCarouselImages = (services: Service[]) => {
 export const SERVICES: Service[] = addCarouselImages([
   {
     slug: 'fotos-bodas',
-    name: 'Fotografía de bodas',
+    name: 'Fotografía de Bodas',
     description:
       'Capturamos cada emoción de tu boda con un estilo natural, elegante y atemporal. Nuestro servicio de fotografía de bodas inmortaliza los momentos más importantes de tu gran día para que puedas revivirlos por siempre.',
     portfolioDescription:
@@ -54,6 +55,7 @@ export const SERVICES: Service[] = addCarouselImages([
           'Entregamos fotografías de alta calidad, ideales para álbumes, redes sociales e impresiones de gran formato.',
       },
     ],
+    videos: ['BRiH4IwjqbA'],
     image: {
       url: '',
       type: 'image',
@@ -475,7 +477,7 @@ export const SERVICES: Service[] = addCarouselImages([
   },
   {
     slug: 'fotos-productos',
-    name: 'Fotografía de productos',
+    name: 'Fotografía de Productos',
     description:
       'Creamos imágenes de alta calidad que resaltan cada detalle, ayudando a que tu tienda online o catálogo destaque frente a la competencia.',
     portfolioDescription:
@@ -498,7 +500,7 @@ export const SERVICES: Service[] = addCarouselImages([
     image: {
       url: '',
       type: 'image',
-      alt: 'AKRON-PHRAMACEUTICA-2-12682',
+      alt: 'Ynn Cafeteria',
       orientation: 'landscape',
     },
     carouselMediaFiles: [
@@ -609,25 +611,67 @@ export const SERVICES: Service[] = addCarouselImages([
       {
         url: '',
         type: 'image',
-        alt: 'AKRON-PHRAMACEUTICA-2-12682',
-        orientation: 'landscape',
-      },
-      {
-        url: '',
-        type: 'image',
-        alt: 'BAOZ-4046',
+        alt: 'Be Healthy Producto 2',
         orientation: 'portrait',
       },
       {
         url: '',
         type: 'image',
-        alt: 'BAOZ-4076',
+        alt: 'Be Healthy Producto 3',
+        orientation: 'portrait',
+      },
+      {
+        url: '',
+        type: 'image',
+        alt: 'Be Healthy Producto',
+        orientation: 'portrait',
+      },
+      {
+        url: '',
+        type: 'image',
+        alt: 'Biangel Producto 2',
+        orientation: 'portrait',
+      },
+      {
+        url: '',
+        type: 'image',
+        alt: 'Biangel Producto 3',
+        orientation: 'portrait',
+      },
+      {
+        url: '',
+        type: 'image',
+        alt: 'Biangel Producto',
         orientation: 'portrait',
       },
       {
         url: '',
         type: 'image',
         alt: 'CLAUDIA-ZSA-4938',
+        orientation: 'portrait',
+      },
+      {
+        url: '',
+        type: 'image',
+        alt: 'Descanso Ancestral',
+        orientation: 'landscape',
+      },
+      {
+        url: '',
+        type: 'image',
+        alt: 'ENARMONIA-Producto 1',
+        orientation: 'portrait',
+      },
+      {
+        url: '',
+        type: 'image',
+        alt: 'ENARMONIA-Producto 2',
+        orientation: 'portrait',
+      },
+      {
+        url: '',
+        type: 'image',
+        alt: 'ENARMONIA-Producto-3',
         orientation: 'portrait',
       },
       {
@@ -753,6 +797,18 @@ export const SERVICES: Service[] = addCarouselImages([
       {
         url: '',
         type: 'image',
+        alt: 'Itswood Navidad',
+        orientation: 'portrait',
+      },
+      {
+        url: '',
+        type: 'image',
+        alt: 'LUKA CAJAS',
+        orientation: 'landscape',
+      },
+      {
+        url: '',
+        type: 'image',
         alt: 'LUKA-2401',
         orientation: 'portrait',
       },
@@ -777,32 +833,44 @@ export const SERVICES: Service[] = addCarouselImages([
       {
         url: '',
         type: 'image',
-        alt: 'ZAS-ZAS-10378',
+        alt: 'Taller 1',
         orientation: 'portrait',
       },
       {
         url: '',
         type: 'image',
-        alt: 'ZAS-ZAS-10384',
+        alt: 'Taller 2',
         orientation: 'portrait',
       },
       {
         url: '',
         type: 'image',
-        alt: 'ZAS-ZAS-10448',
+        alt: 'Taller 3',
         orientation: 'portrait',
       },
       {
         url: '',
         type: 'image',
-        alt: 'ZAS-ZAS-10460',
+        alt: 'Tournasol Producto 1',
         orientation: 'portrait',
       },
       {
         url: '',
         type: 'image',
-        alt: 'ZAS-ZAS-10475',
+        alt: 'Tournasol Producto 2',
         orientation: 'portrait',
+      },
+      {
+        url: '',
+        type: 'image',
+        alt: 'Tournasol Producto 3',
+        orientation: 'portrait',
+      },
+      {
+        url: '',
+        type: 'image',
+        alt: 'Ynn Cafeteria',
+        orientation: 'landscape',
       },
       {
         url: '',
@@ -820,7 +888,7 @@ export const SERVICES: Service[] = addCarouselImages([
   },
   {
     slug: 'fotos-moda',
-    name: 'Fotografía de moda',
+    name: 'Fotografía de Moda',
     description:
       'Creamos sesiones de moda profesionales que destacan el estilo, la actitud y la personalidad de tu marca. Desde lookbooks hasta campañas publicitarias, capturamos imágenes que elevan el valor de tus prendas y conectan con tu público.',
     portfolioDescription:
@@ -852,41 +920,107 @@ export const SERVICES: Service[] = addCarouselImages([
       {
         url: '',
         type: 'image',
-        alt: '1 2',
+        alt: 'LIMA-SOFT-DIC-4289',
         orientation: 'portrait',
       },
       {
         url: '',
         type: 'image',
-        alt: '1',
+        alt: 'LIMA-SOFT-DIC-4296',
         orientation: 'portrait',
       },
       {
         url: '',
         type: 'image',
-        alt: '101---Bilancia-Verano-2024-2511',
+        alt: 'LIMA-SOFT-DIC-4310',
         orientation: 'portrait',
       },
       {
         url: '',
         type: 'image',
-        alt: '2',
+        alt: 'LIMA-SOFT-DIC-4317',
         orientation: 'portrait',
       },
       {
         url: '',
         type: 'image',
-        alt: '326---Bilancia-Verano-2024-2797',
+        alt: 'LIMA-SOFT-DIC-4336',
         orientation: 'portrait',
       },
       {
         url: '',
         type: 'image',
-        alt: '6',
-        orientation: 'landscape',
+        alt: 'LIMA-SOFT-DIC-4350',
+        orientation: 'portrait',
       },
     ],
     allMediaFiles: [
+      {
+        url: '',
+        type: 'image',
+        alt: 'LIMA-SOFT-DIC-4289',
+        orientation: 'portrait',
+      },
+      {
+        url: '',
+        type: 'image',
+        alt: 'LIMA-SOFT-DIC-4296',
+        orientation: 'portrait',
+      },
+      {
+        url: '',
+        type: 'image',
+        alt: 'LIMA-SOFT-DIC-4310',
+        orientation: 'portrait',
+      },
+      {
+        url: '',
+        type: 'image',
+        alt: 'LIMA-SOFT-DIC-4317',
+        orientation: 'portrait',
+      },
+      {
+        url: '',
+        type: 'image',
+        alt: 'LIMA-SOFT-DIC-4336',
+        orientation: 'portrait',
+      },
+      {
+        url: '',
+        type: 'image',
+        alt: 'LIMA-SOFT-DIC-4350',
+        orientation: 'portrait',
+      },
+      {
+        url: '',
+        type: 'image',
+        alt: 'XOMFY-VERANO-3122',
+        orientation: 'portrait',
+      },
+      {
+        url: '',
+        type: 'image',
+        alt: 'XOMFY-VERANO-3183',
+        orientation: 'portrait',
+      },
+      {
+        url: '',
+        type: 'image',
+        alt: 'XOMFY-VERANO-3239',
+        orientation: 'portrait',
+      },
+      {
+        url: '',
+        type: 'image',
+        alt: 'XOMFY-VERANO-3331',
+        orientation: 'portrait',
+      },
+      {
+        url: '',
+        type: 'image',
+        alt: 'XOMFY-VERANO-3418',
+        orientation: 'portrait',
+      },
       {
         url: '',
         type: 'image',
@@ -1227,7 +1361,7 @@ export const SERVICES: Service[] = addCarouselImages([
   },
   {
     slug: 'fotos-corporativas',
-    name: 'Fotografía de empresas',
+    name: 'Eventos Corporativos',
     description:
       'Mostramos la personalidad y los valores de tu empresa en cada retrato, generando confianza en clientes, socios y colaboradores.',
     portfolioDescription: 'La imagen de tu empresa, en su mejor versión.',
@@ -1245,6 +1379,7 @@ export const SERVICES: Service[] = addCarouselImages([
         description: 'Imágenes ideales para web, presentaciones y redes sociales.',
       },
     ],
+    videos: ['5ZC-84NjceA', '7swe52Y9SU0', 'lV0CH0JtnXA'],
     image: {
       url: '',
       type: 'image',
@@ -1255,64 +1390,196 @@ export const SERVICES: Service[] = addCarouselImages([
       {
         url: '',
         type: 'image',
-        alt: 'CAROLINA COLOR-10719',
+        alt: 'AICI 1',
         orientation: 'landscape',
       },
       {
         url: '',
         type: 'image',
-        alt: 'CAROLINA-COLOR-10590',
-        orientation: 'portrait',
-      },
-      {
-        url: '',
-        type: 'image',
-        alt: 'CAROLINA-COLOR-10615',
-        orientation: 'portrait',
-      },
-      {
-        url: '',
-        type: 'image',
-        alt: 'CAROLINA-COLOR-10620',
-        orientation: 'portrait',
-      },
-      {
-        url: '',
-        type: 'image',
-        alt: 'CELELPSA 3561',
+        alt: 'AICI 2',
         orientation: 'landscape',
       },
       {
         url: '',
         type: 'image',
-        alt: 'CELELPSA 3570',
+        alt: 'AICI 3',
         orientation: 'landscape',
+      },
+      {
+        url: '',
+        type: 'image',
+        alt: 'ALPHA 1',
+        orientation: 'landscape',
+      },
+      {
+        url: '',
+        type: 'image',
+        alt: 'ALPHA 2',
+        orientation: 'landscape',
+      },
+      {
+        url: '',
+        type: 'image',
+        alt: 'ALPHA 3',
+        orientation: 'portrait',
       },
     ],
     allMediaFiles: [
       {
         url: '',
         type: 'image',
-        alt: 'CAROLINA COLOR-10719',
+        alt: 'AICI 1',
         orientation: 'landscape',
       },
       {
         url: '',
         type: 'image',
-        alt: 'CAROLINA-COLOR-10590',
+        alt: 'AICI 2',
+        orientation: 'landscape',
+      },
+      {
+        url: '',
+        type: 'image',
+        alt: 'AICI 3',
+        orientation: 'landscape',
+      },
+      {
+        url: '',
+        type: 'image',
+        alt: 'ALPHA 1',
+        orientation: 'landscape',
+      },
+      {
+        url: '',
+        type: 'image',
+        alt: 'ALPHA 2',
+        orientation: 'landscape',
+      },
+      {
+        url: '',
+        type: 'image',
+        alt: 'ALPHA 3',
         orientation: 'portrait',
       },
       {
         url: '',
         type: 'image',
-        alt: 'CAROLINA-COLOR-10615',
+        alt: 'AZZORTI 1',
+        orientation: 'landscape',
+      },
+      {
+        url: '',
+        type: 'image',
+        alt: 'AZZORTI 2',
         orientation: 'portrait',
       },
       {
         url: '',
         type: 'image',
-        alt: 'CAROLINA-COLOR-10620',
+        alt: 'AZZORTI 3',
+        orientation: 'landscape',
+      },
+      {
+        url: '',
+        type: 'image',
+        alt: 'COLEGIO MEDICO 1',
         orientation: 'portrait',
+      },
+      {
+        url: '',
+        type: 'image',
+        alt: 'COLEGIO MEDICO 2',
+        orientation: 'portrait',
+      },
+      {
+        url: '',
+        type: 'image',
+        alt: 'COLEGIO MEDICO 3',
+        orientation: 'landscape',
+      },
+      {
+        url: '',
+        type: 'image',
+        alt: 'COLEGIO MEDICO 4',
+        orientation: 'landscape',
+      },
+      {
+        url: '',
+        type: 'image',
+        alt: 'COURTYARD 1',
+        orientation: 'landscape',
+      },
+      {
+        url: '',
+        type: 'image',
+        alt: 'COURTYARD 2',
+        orientation: 'landscape',
+      },
+      {
+        url: '',
+        type: 'image',
+        alt: 'COURTYARD 3',
+        orientation: 'landscape',
+      },
+      {
+        url: '',
+        type: 'image',
+        alt: 'DISPOLAB 1',
+        orientation: 'landscape',
+      },
+      {
+        url: '',
+        type: 'image',
+        alt: 'DISPOLAB 2',
+        orientation: 'landscape',
+      },
+      {
+        url: '',
+        type: 'image',
+        alt: 'DISPOLAB 3',
+        orientation: 'landscape',
+      },
+      {
+        url: '',
+        type: 'image',
+        alt: 'DISPOLAB 4',
+        orientation: 'landscape',
+      },
+      {
+        url: '',
+        type: 'image',
+        alt: 'DISPOLAB 5',
+        orientation: 'landscape',
+      },
+      {
+        url: '',
+        type: 'image',
+        alt: 'MICROTECH 1',
+        orientation: 'landscape',
+      },
+      {
+        url: '',
+        type: 'image',
+        alt: 'MICROTECH 2',
+        orientation: 'landscape',
+      },
+      {
+        url: '',
+        type: 'image',
+        alt: 'MICROTECH 3',
+        orientation: 'landscape',
+      },
+      {
+        url: '',
+        type: 'image',
+        alt: 'MICROTECH 4',
+        orientation: 'landscape',
+      },
+      {
+        url: '',
+        type: 'image',
+        alt: 'MICROTECH 5',
+        orientation: 'landscape',
       },
       {
         url: '',
@@ -1324,12 +1591,6 @@ export const SERVICES: Service[] = addCarouselImages([
         url: '',
         type: 'image',
         alt: 'CELELPSA 3570',
-        orientation: 'landscape',
-      },
-      {
-        url: '',
-        type: 'image',
-        alt: 'CELELPSA 3596',
         orientation: 'landscape',
       },
       {
@@ -1401,42 +1662,6 @@ export const SERVICES: Service[] = addCarouselImages([
       {
         url: '',
         type: 'image',
-        alt: 'CELELPSA 4367',
-        orientation: 'landscape',
-      },
-      {
-        url: '',
-        type: 'image',
-        alt: 'CELELPSA 4437',
-        orientation: 'landscape',
-      },
-      {
-        url: '',
-        type: 'image',
-        alt: 'CELELPSA 4450',
-        orientation: 'landscape',
-      },
-      {
-        url: '',
-        type: 'image',
-        alt: 'CELELPSA 4487',
-        orientation: 'landscape',
-      },
-      {
-        url: '',
-        type: 'image',
-        alt: 'CELELPSA 4499',
-        orientation: 'landscape',
-      },
-      {
-        url: '',
-        type: 'image',
-        alt: 'CELELPSA 4525',
-        orientation: 'landscape',
-      },
-      {
-        url: '',
-        type: 'image',
         alt: 'CELELPSA 4530',
         orientation: 'landscape',
       },
@@ -1450,18 +1675,6 @@ export const SERVICES: Service[] = addCarouselImages([
         url: '',
         type: 'image',
         alt: 'CENERGIA-18269',
-        orientation: 'portrait',
-      },
-      {
-        url: '',
-        type: 'image',
-        alt: 'CIELO-18523',
-        orientation: 'portrait',
-      },
-      {
-        url: '',
-        type: 'image',
-        alt: 'CIELO-18751',
         orientation: 'portrait',
       },
       {
@@ -1487,48 +1700,6 @@ export const SERVICES: Service[] = addCarouselImages([
         type: 'image',
         alt: 'COURTYARD5558',
         orientation: 'landscape',
-      },
-      {
-        url: '',
-        type: 'image',
-        alt: 'KATI-GALINDO-TEAM-13325',
-        orientation: 'portrait',
-      },
-      {
-        url: '',
-        type: 'image',
-        alt: 'KATI-GALINDO-TEAM-13455',
-        orientation: 'portrait',
-      },
-      {
-        url: '',
-        type: 'image',
-        alt: 'KATI-GALINDO-TEAM-13476',
-        orientation: 'portrait',
-      },
-      {
-        url: '',
-        type: 'image',
-        alt: 'KATI-GALINDO-TEAM-13482',
-        orientation: 'portrait',
-      },
-      {
-        url: '',
-        type: 'image',
-        alt: 'KATI-GALINDO-TEAM-13486',
-        orientation: 'portrait',
-      },
-      {
-        url: '',
-        type: 'image',
-        alt: 'KATI-GALINDO-TEAM-13487',
-        orientation: 'portrait',
-      },
-      {
-        url: '',
-        type: 'image',
-        alt: 'KATI-GALINDO-TEAM-13495',
-        orientation: 'portrait',
       },
       {
         url: '',
@@ -1570,7 +1741,7 @@ export const SERVICES: Service[] = addCarouselImages([
   },
   {
     slug: 'fotos-familia',
-    name: 'Fotografía familiar',
+    name: 'Fotografía Familiar',
     description:
       'Sesiones fotográficas naturales y llenas de vida para familias, parejas, niños, embarazadas y quienes desean conservar recuerdos auténticos. Capturamos momentos reales, espontáneos y emotivos que reflejan tu historia.',
     portfolioDescription:
@@ -1602,41 +1773,203 @@ export const SERVICES: Service[] = addCarouselImages([
       {
         url: '',
         type: 'image',
-        alt: 'CATHERINE-EMBARAZO-15794',
-        orientation: 'portrait',
+        alt: 'BAUTIZO 1',
+        orientation: 'landscape',
       },
       {
         url: '',
         type: 'image',
-        alt: 'CATHERINE-EMBARAZO-15798',
-        orientation: 'portrait',
+        alt: 'BAUTIZO 2',
+        orientation: 'landscape',
       },
       {
         url: '',
         type: 'image',
-        alt: 'CATHERINE-EMBARAZO-15840',
-        orientation: 'portrait',
+        alt: 'BAUTIZO 3',
+        orientation: 'landscape',
       },
       {
         url: '',
         type: 'image',
-        alt: 'CATHERINE-EMBARAZO-15943',
-        orientation: 'portrait',
+        alt: 'CORPANCHO-5243',
+        orientation: 'landscape',
       },
       {
         url: '',
         type: 'image',
-        alt: 'CATHERINE-EMBARAZO-16044',
-        orientation: 'portrait',
+        alt: 'CORPANCHO-5248',
+        orientation: 'landscape',
       },
       {
         url: '',
         type: 'image',
-        alt: 'CUMPLE-OLIVIA_4985',
+        alt: 'CORPANCHO-5255',
         orientation: 'landscape',
       },
     ],
     allMediaFiles: [
+      {
+        url: '',
+        type: 'image',
+        alt: 'BAUTIZO 1',
+        orientation: 'landscape',
+      },
+      {
+        url: '',
+        type: 'image',
+        alt: 'BAUTIZO 2',
+        orientation: 'landscape',
+      },
+      {
+        url: '',
+        type: 'image',
+        alt: 'BAUTIZO 3',
+        orientation: 'landscape',
+      },
+      {
+        url: '',
+        type: 'image',
+        alt: 'CORPANCHO-5243',
+        orientation: 'landscape',
+      },
+      {
+        url: '',
+        type: 'image',
+        alt: 'CORPANCHO-5248',
+        orientation: 'landscape',
+      },
+      {
+        url: '',
+        type: 'image',
+        alt: 'CORPANCHO-5255',
+        orientation: 'landscape',
+      },
+      {
+        url: '',
+        type: 'image',
+        alt: 'CUMPLE MASSI 1',
+        orientation: 'portrait',
+      },
+      {
+        url: '',
+        type: 'image',
+        alt: 'CUMPLE MASSI 2',
+        orientation: 'portrait',
+      },
+      {
+        url: '',
+        type: 'image',
+        alt: 'CUMPLE MASSI 3',
+        orientation: 'landscape',
+      },
+      {
+        url: '',
+        type: 'image',
+        alt: 'EMBARAZO-1962',
+        orientation: 'portrait',
+      },
+      {
+        url: '',
+        type: 'image',
+        alt: 'EMBARAZO-2050',
+        orientation: 'portrait',
+      },
+      {
+        url: '',
+        type: 'image',
+        alt: 'EMBARAZO-2060',
+        orientation: 'portrait',
+      },
+      {
+        url: '',
+        type: 'image',
+        alt: 'MARIA-VICTORIA-FAM-8725-v2',
+        orientation: 'landscape',
+      },
+      {
+        url: '',
+        type: 'image',
+        alt: 'MARIA-VICTORIA-FAM-8725',
+        orientation: 'landscape',
+      },
+      {
+        url: '',
+        type: 'image',
+        alt: 'MARIA-VICTORIA-FAM-8847',
+        orientation: 'portrait',
+      },
+      {
+        url: '',
+        type: 'image',
+        alt: 'MELLIS 1',
+        orientation: 'landscape',
+      },
+      {
+        url: '',
+        type: 'image',
+        alt: 'MELLIS 2',
+        orientation: 'landscape',
+      },
+      {
+        url: '',
+        type: 'image',
+        alt: 'MELLIS 3',
+        orientation: 'landscape',
+      },
+      {
+        url: '',
+        type: 'image',
+        alt: 'PRIMER AÑO 1',
+        orientation: 'portrait',
+      },
+      {
+        url: '',
+        type: 'image',
+        alt: 'PRIMER AÑO 2',
+        orientation: 'portrait',
+      },
+      {
+        url: '',
+        type: 'image',
+        alt: 'PRIMER AÑO 3',
+        orientation: 'portrait',
+      },
+      {
+        url: '',
+        type: 'image',
+        alt: 'SUSANNE-4540',
+        orientation: 'landscape',
+      },
+      {
+        url: '',
+        type: 'image',
+        alt: 'SUSANNE-4582',
+        orientation: 'portrait',
+      },
+      {
+        url: '',
+        type: 'image',
+        alt: 'SUSANNE-4693',
+        orientation: 'portrait',
+      },
+      {
+        url: '',
+        type: 'image',
+        alt: 'embarazo-24691',
+        orientation: 'portrait',
+      },
+      {
+        url: '',
+        type: 'image',
+        alt: 'embarazo-24753',
+        orientation: 'portrait',
+      },
+      {
+        url: '',
+        type: 'image',
+        alt: 'embarazo-24851',
+        orientation: 'portrait',
+      },
       {
         url: '',
         type: 'image',
