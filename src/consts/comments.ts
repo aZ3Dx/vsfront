@@ -9,8 +9,8 @@ export const COMMENTS: Comment[] = [
     comment:
       'He contratado a Visual Studio en dos ocasiones para mis fotos de marca personal y la experiencia ha sido excepcional en ambas. Lo que más valoro es su rapidez en la entrega sin sacrificar la calidad del trabajo, además de su trato amable y cercano que hace que cada sesión sea muy cómoda. Confío tanto en su trabajo que constantemente los refiero con mis clientes y he recomendado sus servicios entre los miembros de mi asociación.',
     rating: 5,
-    userName: 'Carolina Coda',
-    userInfo: 'Gerente Marketing AICI',
+    userName: 'Carolina Calderón',
+    userInfo: 'VP Marketing y Comunicaciones de AICI Perú',
     userPhoto: CAROLINA,
   },
   {

@@ -23,7 +23,10 @@ const addCarouselImages = (services: Service[]) => {
       carouselMediaFiles: service.carouselMediaFiles.map((mediaFile) => {
         return {
           ...mediaFile,
-          url: `${MEDIA_URL}/services/${service.slug}/${mediaFile.alt}`,
+          url:
+            mediaFile.type === 'video'
+              ? mediaFile.url
+              : `${MEDIA_URL}/services/${service.slug}/${mediaFile.alt}`,
         };
       }) as MediaFile[],
     };
@@ -1379,7 +1382,7 @@ export const SERVICES: Service[] = addCarouselImages([
         description: 'Imágenes ideales para web, presentaciones y redes sociales.',
       },
     ],
-    videos: ['5ZC-84NjceA', '7swe52Y9SU0', 'lV0CH0JtnXA'],
+    videos: ['5ZC-84NjceA', '7swe52Y9SU0', 'lV0CH0JtnXA', 'x6BQ68IowkA'],
     image: {
       url: '',
       type: 'image',
