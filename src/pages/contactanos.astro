@@ -6,12 +6,39 @@ import IconMail from '@/assets/icons/IconMail.svg';
 import LightBoxImage from '@/assets/images/LightBox.png';
 import Question from '@/components/Question.astro';
 import { QUESTIONS } from '@/consts/questions';
+import { SITE_CONFIG } from '@/consts/siteConfig';
 import { SOCIAL_MEDIAS } from '@/consts/socialMedias';
 import Layout from '@/layouts/Layout.astro';
 import { Image } from 'astro:assets';
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: QUESTIONS.map((q) => ({
+    '@type': 'Question',
+    name: q.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: q.answer,
+    },
+  })),
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Inicio', item: SITE_CONFIG.url },
+    { '@type': 'ListItem', position: 2, name: 'Contáctanos', item: `${SITE_CONFIG.url}/contactanos` },
+  ],
+};
 ---
 
-<Layout>
+<Layout
+  title="Contáctanos"
+  description="Contáctanos por WhatsApp, Instagram, Facebook o correo electrónico. Visual Studio, agencia de fotografía y producción audiovisual en Lima, Perú."
+  jsonLd={[faqSchema, breadcrumbSchema]}
+>
   <main class="pt-24 lg:pt-32">
     <section>
       <h1 class="mb-4 text-center text-2xl font-semibold lg:text-4xl">

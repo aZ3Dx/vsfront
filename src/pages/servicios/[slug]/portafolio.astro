@@ -1,6 +1,7 @@
 ---
 import Gallery from '@/components/Gallery.astro';
 import { SERVICES } from '@/consts/services';
+import { SITE_CONFIG } from '@/consts/siteConfig';
 import Layout from '@/layouts/Layout.astro';
 import type { GetStaticPaths } from 'astro';
 
@@ -12,9 +13,24 @@ export const getStaticPaths = (async () => {
 }) satisfies GetStaticPaths;
 
 const { service } = Astro.props;
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Inicio', item: SITE_CONFIG.url },
+    { '@type': 'ListItem', position: 2, name: 'Servicios', item: `${SITE_CONFIG.url}/servicios` },
+    { '@type': 'ListItem', position: 3, name: service.name, item: `${SITE_CONFIG.url}/servicios/${service.slug}` },
+    { '@type': 'ListItem', position: 4, name: 'Portafolio', item: `${SITE_CONFIG.url}/servicios/${service.slug}/portafolio` },
+  ],
+};
 ---
 
-<Layout>
+<Layout
+  title={`Portafolio de ${service.name}`}
+  description={service.portfolioDescription}
+  jsonLd={breadcrumbSchema}
+>
   <main class="pt-20 lg:pt-30">
     <section class="bg-beige1 px-4 py-8">
       <h1 class="mb-4 text-center text-2xl font-semibold lg:text-4xl">Portafolio</h1>

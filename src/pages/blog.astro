@@ -1,13 +1,27 @@
 ---
 import BlogCard from '@/components/BlogCard.astro';
+import { SITE_CONFIG } from '@/consts/siteConfig';
 import Layout from '@/layouts/Layout.astro';
 import type { Blog } from '@/types/blog';
 import { getCollection } from 'astro:content';
 
 const blogs: Blog[] = await getCollection('blogs');
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Inicio', item: SITE_CONFIG.url },
+    { '@type': 'ListItem', position: 2, name: 'Blog', item: `${SITE_CONFIG.url}/blog` },
+  ],
+};
 ---
 
-<Layout>
+<Layout
+  title="Blog"
+  description="Consejos, tendencias y experiencias en fotografía y producción audiovisual. Inspírate con el blog de Visual Studio, agencia creativa en Lima, Perú."
+  jsonLd={breadcrumbSchema}
+>
   <main class="pt-20">
     <section>
       <h1 class="text-center text-2xl font-semibold">Nuestro Blog</h1>

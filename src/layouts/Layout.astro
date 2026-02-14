@@ -1,19 +1,25 @@
 ---
+import SEO from '@/components/SEO.astro';
 import WhatsappButton from '@/components/WhatsappButton.astro';
 import Footer from '@/sections/Footer.astro';
 import Header from '@/sections/Header.astro';
 import '@/styles/globals.css';
+import type { SEOProps } from '@/types/seo';
+
+type Props = SEOProps;
+
+const seoProps = Astro.props;
 ---
 
 <!doctype html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="robots" content="noindex, nofollow" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+    <link rel="preconnect" href="https://assets.visualstudio.pe" />
     <meta name="generator" content={Astro.generator} />
-    <title>VS Front</title>
+    <SEO {...seoProps} />
   </head>
   <body>
     <Header />

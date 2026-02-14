@@ -2,10 +2,24 @@
 import Button from '@/components/Button.astro';
 import Gallery from '@/components/Gallery.astro';
 import { SERVICES } from '@/consts/services';
+import { SITE_CONFIG } from '@/consts/siteConfig';
 import Layout from '@/layouts/Layout.astro';
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Inicio', item: SITE_CONFIG.url },
+    { '@type': 'ListItem', position: 2, name: 'Portafolio', item: `${SITE_CONFIG.url}/portafolio` },
+  ],
+};
 ---
 
-<Layout>
+<Layout
+  title="Portafolio"
+  description="Explora el portafolio de Visual Studio: fotografía de producto, moda, retrato corporativo, podcasts y más. Proyectos reales con resultados profesionales en Lima, Perú."
+  jsonLd={breadcrumbSchema}
+>
   <main class="pt-20 lg:pt-30">
     <section class="mb-2">
       <h1 class="text-center text-2xl font-semibold lg:text-4xl">Portafolio</h1>
