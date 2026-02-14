@@ -11,7 +11,12 @@ import { CLIENTS } from '@/consts/clients';
       {
         CLIENTS.map((client) => (
           <div class="embla__slide my-auto shrink-0 px-4">
-            <img src={`${client.image.url}.webp`} alt={client.image.alt} class="h-auto w-24 2xl:w-32" />
+            <img
+              src={`${client.image.url}.webp`}
+              alt={client.image.alt}
+              loading="lazy"
+              class="h-auto w-24 2xl:w-32"
+            />
           </div>
         ))
       }

@@ -1,5 +1,6 @@
 ---
 import Button from '@/components/Button.astro';
+import { SITE_CONFIG } from '@/consts/siteConfig';
 import Layout from '@/layouts/Layout.astro';
 import { getCollection, getEntry } from 'astro:content';
 
@@ -18,9 +19,44 @@ if (!post) {
 }
 
 const { Content } = await post.render();
+
+const blogPostingSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: post.data.title,
+  description: post.data.description,
+  image: post.data.coverImageUrl,
+  datePublished: post.data.createdAt,
+  author: {
+    '@type': 'Person',
+    name: post.data.madeBy,
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: SITE_CONFIG.name,
+    url: SITE_CONFIG.url,
+  },
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Inicio', item: SITE_CONFIG.url },
+    { '@type': 'ListItem', position: 2, name: 'Blog', item: `${SITE_CONFIG.url}/blog` },
+    { '@type': 'ListItem', position: 3, name: post.data.title, item: `${SITE_CONFIG.url}/blogs/${slug}` },
+  ],
+};
 ---
 
-<Layout>
+<Layout
+  title={post.data.title}
+  description={post.data.description}
+  image={post.data.coverImageUrl}
+  type="article"
+  article={{ publishedTime: post.data.createdAt, author: post.data.madeBy }}
+  jsonLd={[blogPostingSchema, breadcrumbSchema]}
+>
   <main class="pt-20">
     <section class="section relative">
       <div class="absolute h-10 w-full bg-linear-to-b from-white to-transparent"></div>

@@ -7,11 +7,25 @@ import CAROLINAGROUP from '@/assets/images/users/CAROLINA_GROUP.webp';
 import MOISESGROUP from '@/assets/images/users/MOISES_GROUP.webp';
 import XIOMARAGROUP from '@/assets/images/users/XIOMARA_GROUP.webp';
 import Member from '@/components/Member.astro';
+import { SITE_CONFIG } from '@/consts/siteConfig';
 import Layout from '@/layouts/Layout.astro';
 import { Image } from 'astro:assets';
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Inicio', item: SITE_CONFIG.url },
+    { '@type': 'ListItem', position: 2, name: 'Sobre Nosotros', item: `${SITE_CONFIG.url}/sobre-nosotros` },
+  ],
+};
 ---
 
-<Layout>
+<Layout
+  title="Sobre Nosotros"
+  description="Conoce al equipo detrás de Visual Studio. Somos una agencia de fotografía y producción audiovisual en Lima, Perú, con pasión por contar historias visuales."
+  jsonLd={breadcrumbSchema}
+>
   <main class="pt-24 lg:pt-32">
     <section class="px-4 lg:mb-10">
       <div>
@@ -64,9 +78,9 @@ import { Image } from 'astro:assets';
         />
         <Member
           image={MOISESGROUP}
-          title="Sesión grabación de podcast “Entre Batas”"
+          title={'Sesión grabación de podcast "Entre Batas"'}
           location="Ubi. Cliniderma, San Borja"
-          description="Junto a Moises y el Dr. Julio Negrón. Hemos grabado varios capítulos de su podcast “Entre Batas” Para lo cual, usamos tres cámaras, dos micrófonos y un esquema de iluminación dedicado."
+          description={'Junto a Moises y el Dr. Julio Negrón. Hemos grabado varios capítulos de su podcast "Entre Batas" Para lo cual, usamos tres cámaras, dos micrófonos y un esquema de iluminación dedicado.'}
         />
         <Member
           image={CARMENGROUP}

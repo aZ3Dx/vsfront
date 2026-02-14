@@ -1,4 +1,6 @@
 ---
+import { COMMENTS } from '@/consts/comments';
+import { SITE_CONFIG } from '@/consts/siteConfig';
 import Layout from '@/layouts/Layout.astro';
 import Services from '@/sections/Services.astro';
 import Extra from '@/sections/Extra.astro';
@@ -6,9 +8,52 @@ import Comments from '@/sections/Comments.astro';
 import Blog from '@/sections/Blog.astro';
 import Hero from '@/sections/Hero.astro';
 import Clients from '@/sections/Clients.astro';
+
+const totalRating = COMMENTS.reduce((sum, c) => sum + c.rating, 0);
+const avgRating = totalRating / COMMENTS.length;
+
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: SITE_CONFIG.name,
+  url: SITE_CONFIG.url,
+  logo: `${SITE_CONFIG.url}/favicon.ico`,
+  sameAs: SITE_CONFIG.socialLinks,
+  contactPoint: {
+    '@type': 'ContactPoint',
+    telephone: SITE_CONFIG.phone,
+    contactType: 'customer service',
+    availableLanguage: 'Spanish',
+  },
+};
+
+const localBusinessSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: SITE_CONFIG.name,
+  url: SITE_CONFIG.url,
+  telephone: SITE_CONFIG.phone,
+  email: SITE_CONFIG.email,
+  address: {
+    '@type': 'PostalAddress',
+    ...SITE_CONFIG.address,
+  },
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: avgRating.toFixed(1),
+    reviewCount: COMMENTS.length,
+    bestRating: 5,
+  },
+  review: COMMENTS.map((c) => ({
+    '@type': 'Review',
+    author: { '@type': 'Person', name: c.userName },
+    reviewRating: { '@type': 'Rating', ratingValue: c.rating, bestRating: 5 },
+    reviewBody: c.comment,
+  })),
+};
 ---
 
-<Layout>
+<Layout jsonLd={[organizationSchema, localBusinessSchema]}>
   <main class="">
     <Hero />
     <Services />
