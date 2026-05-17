@@ -19,7 +19,17 @@ const seoProps = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
     <link rel="preconnect" href="https://assets.visualstudio.pe" />
     <meta name="generator" content={Astro.generator} />
-    <SEO {...seoProps} />
+    <SEO {...seoProps} /><!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4D7PYQT6R4"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+
+      gtag('config', 'G-4D7PYQT6R4');
+    </script>
   </head>
   <body>
     <Header />

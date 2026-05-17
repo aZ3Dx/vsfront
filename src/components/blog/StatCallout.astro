@@ -1,0 +1,30 @@
+---
+interface Props {
+  stat: string;
+  text: string;
+  source?: string;
+  sourceUrl?: string;
+}
+
+const { stat, text, source, sourceUrl } = Astro.props;
+---
+
+<div class="my-8 flex flex-col gap-4 rounded-lg border-l-4 border-midnight bg-beige1 px-8 py-6 sm:flex-row sm:items-start sm:gap-5">
+  <span class="font-heading text-6xl font-semibold leading-none text-midnight">{stat}</span>
+  <div class="flex flex-col gap-1">
+    <span class="text-lg leading-snug text-midnight">{text}</span>
+    {
+      source && (
+        <span class="text-sm text-midnight/50">
+          {sourceUrl ? (
+            <a href={sourceUrl} target="_blank" rel="noopener noreferrer">
+              {source}
+            </a>
+          ) : (
+            source
+          )}
+        </span>
+      )
+    }
+  </div>
+</div>

@@ -49,9 +49,4 @@
       @apply !text-sm;
     } */
   }
-
-  a.disabled {
-    pointer-events: none;
-    cursor: not-allowed;
-  }
 }

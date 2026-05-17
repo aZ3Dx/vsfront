@@ -1,0 +1,29 @@
+---
+interface Props {
+  images: Array<{ src: string; alt: string; label?: string }>;
+  cols?: 2 | 3 | 4;
+}
+
+const { images, cols = 3 } = Astro.props;
+
+const itemClass = {
+  2: 'sm:w-[calc(50%-6px)]',
+  3: 'sm:w-[calc(50%-6px)] lg:w-[calc(33.333%-8px)]',
+  4: 'sm:w-[calc(50%-6px)] lg:w-[calc(25%-9px)]',
+}[cols];
+---
+
+<div class="my-8 flex flex-wrap justify-center gap-3">
+  {
+    images.map(({ src, alt, label }) => (
+      <div class:list={['relative aspect-[4/3] w-full overflow-hidden rounded-lg', itemClass]}>
+        <img class="h-full w-full object-cover" src={src} alt={alt} />
+        {label && (
+          <span class="pointer-events-none absolute bottom-3 left-3 rounded-md bg-midnight/70 px-2 py-1 text-xs font-medium text-white backdrop-blur-sm">
+            {label}
+          </span>
+        )}
+      </div>
+    ))
+  }
+</div>
