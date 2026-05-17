@@ -1,0 +1,27 @@
+---
+import Button from '@/components/Button.astro';
+
+interface Props {
+  title: string;
+  subtitle: string;
+  primaryText: string;
+  primaryHref: string;
+  secondaryText?: string;
+  secondaryHref?: string;
+}
+
+const { title, subtitle, primaryText, primaryHref, secondaryText, secondaryHref } = Astro.props;
+---
+
+<div class="mt-10 rounded-lg bg-beige1 px-8 py-10 text-center">
+  <div class="font-heading text-2xl font-semibold text-midnight">{title}</div>
+  <div class="mt-2 text-midnight/60">{subtitle}</div>
+  <div class="mt-6 flex flex-wrap justify-center gap-3">
+    <Button type="anchor" text={primaryText} href={primaryHref} style="primary" />
+    {
+      secondaryText && secondaryHref && (
+        <Button type="anchor" text={secondaryText} href={secondaryHref} style="secondary-simple" />
+      )
+    }
+  </div>
+</div>

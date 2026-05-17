@@ -22,17 +22,17 @@ const breadcrumbSchema = {
   description="Consejos, tendencias y experiencias en fotografía y producción audiovisual. Inspírate con el blog de Visual Studio, agencia creativa en Lima, Perú."
   jsonLd={breadcrumbSchema}
 >
-  <main class="pt-20">
+  <main class="pt-20 lg:pt-30">
     <section>
-      <h1 class="text-center text-2xl font-semibold">Nuestro Blog</h1>
-      <p class="mt-4 text-center text-balance">
+      <h1 class="text-center text-2xl font-semibold lg:text-4xl">Nuestro Blog</h1>
+      <p class="mt-4 text-center text-lg text-balance lg:text-xl">
         Últimas tendencias, consejos y experiencias en fotografía que hemos experimentado. Inspírate
         y descubre más sobre <span class="font-semibold">Visual Studio</span>.
       </p>
     </section>
-    <section class="py-4">
+    <section class="mx-auto max-w-xl py-4">
       {
-        blogs.map((blog) => (
+        blogs.slice(3, 4).map((blog) => (
           <div class="p-4">
             <BlogCard blog={blog} />
           </div>

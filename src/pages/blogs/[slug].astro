@@ -44,7 +44,12 @@ const breadcrumbSchema = {
   itemListElement: [
     { '@type': 'ListItem', position: 1, name: 'Inicio', item: SITE_CONFIG.url },
     { '@type': 'ListItem', position: 2, name: 'Blog', item: `${SITE_CONFIG.url}/blog` },
-    { '@type': 'ListItem', position: 3, name: post.data.title, item: `${SITE_CONFIG.url}/blogs/${slug}` },
+    {
+      '@type': 'ListItem',
+      position: 3,
+      name: post.data.title,
+      item: `${SITE_CONFIG.url}/blogs/${slug}`,
+    },
   ],
 };
 ---
@@ -57,26 +62,28 @@ const breadcrumbSchema = {
   article={{ publishedTime: post.data.createdAt, author: post.data.madeBy }}
   jsonLd={[blogPostingSchema, breadcrumbSchema]}
 >
-  <main class="pt-20">
+  <main class="pt-20 lg:pt-30">
+    <section class="mb-2">
+      <h1 class="mx-auto max-w-4xl text-center text-2xl font-semibold lg:text-4xl">
+        {post.data.title}
+      </h1>
+      <p class="mt-2 text-center">
+        Por <span class="font-semibold">{post.data.madeBy}</span> | {post.data.lectureTime} de lectura
+      </p>
+    </section>
     <section class="section relative">
       <div class="absolute h-10 w-full bg-linear-to-b from-white to-transparent"></div>
-      <div class="px-2 py-4">
-        <div class="mb-4">
-          <h1 class="text-2xl font-semibold">{post.data.title}</h1>
-          <p>
-            Por <span class="font-semibold">{post.data.madeBy}</span> | {post.data.lectureTime} de lectura
-          </p>
-        </div>
-        <div class="h-50 overflow-hidden rounded-lg">
+      <div class="mx-auto flex justify-center py-10">
+        <div class="aspect-video h-50 overflow-hidden rounded-lg md:h-60 lg:h-120">
           <img
             class="h-full w-full object-cover"
             src={post.data.coverImageUrl}
-            alt={`${post.data.title} cover image`}
+            alt={post.data.coverImageAlt ?? `${post.data.title} — Visual Studio`}
           />
         </div>
       </div>
     </section>
-    <section class="px-2">
+    <section class="blog-content mx-auto max-w-3xl px-4 pt-10 pb-10">
       <Content />
     </section>
     <section class="flex justify-center py-10">
@@ -86,6 +93,67 @@ const breadcrumbSchema = {
 </Layout>
 
 <style scoped>
+  .blog-content :global(h2) {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+  }
+
+  .blog-content :global(h3) {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+  }
+
+  .blog-content :global(p) {
+    margin-bottom: 1.25rem;
+    line-height: 1.8;
+  }
+
+  .blog-content :global(ul),
+  .blog-content :global(ol) {
+    margin-bottom: 1.25rem;
+    padding-left: 1.5rem;
+  }
+
+  .blog-content :global(ul) {
+    list-style-type: disc;
+  }
+
+  .blog-content :global(ol) {
+    list-style-type: decimal;
+  }
+
+  .blog-content :global(li) {
+    margin-bottom: 0.5rem;
+    line-height: 1.75;
+  }
+
+  .blog-content :global(strong) {
+    font-weight: 600;
+  }
+
+  .blog-content :global(em) {
+    font-style: italic;
+  }
+
+  .blog-content :global(a) {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .blog-content :global(blockquote) {
+    border-left: 3px solid #faeee0;
+    padding-left: 1.25rem;
+    font-style: italic;
+    margin: 1.5rem 0;
+    color: #555;
+  }
+
   .section {
     background-image: url("data:image/svg+xml,<svg id='patternId' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><defs><pattern id='a' patternUnits='userSpaceOnUse' width='40' height='20' patternTransform='scale(2) rotate(0)'><rect x='0' y='0' width='100%' height='100%' fill='%23ffffffff'/><path d='M19.988 0l10 10L40 .006z'  stroke-width='1' stroke='none' fill='%23faeee0ff'/><path d='M10.012 10L0 19.994 19.988 20z'  stroke-width='1' stroke='none' fill='%23faeee0ff'/></pattern></defs><rect width='800%' height='800%' transform='translate(0,0)' fill='url(%23a)'/></svg>");
   }
