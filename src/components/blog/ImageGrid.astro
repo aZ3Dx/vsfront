@@ -1,6 +1,13 @@
 ---
+interface Image {
+  src: string;
+  alt: string;
+  label?: string;
+  fit?: 'cover' | 'contain';
+}
+
 interface Props {
-  images: Array<{ src: string; alt: string; label?: string }>;
+  images: Image[];
   cols?: 2 | 3 | 4;
 }
 
@@ -15,9 +22,24 @@ const itemClass = {
 
 <div class="my-8 flex flex-wrap justify-center gap-3">
   {
-    images.map(({ src, alt, label }) => (
+    images.map(({ src, alt, label, fit = 'cover' }) => (
       <div class:list={['relative aspect-[4/3] w-full overflow-hidden rounded-lg', itemClass]}>
-        <img class="h-full w-full object-cover" src={src} alt={alt} />
+        {fit === 'contain' && (
+          <img
+            class="absolute inset-0 h-full w-full scale-110 object-cover blur-xl"
+            src={src}
+            alt=""
+            aria-hidden="true"
+          />
+        )}
+        <img
+          class:list={[
+            'relative h-full w-full',
+            fit === 'contain' ? 'object-contain' : 'object-cover',
+          ]}
+          src={src}
+          alt={alt}
+        />
         {label && (
           <span class="pointer-events-none absolute bottom-3 left-3 rounded-md bg-midnight/70 px-2 py-1 text-xs font-medium text-white backdrop-blur-sm">
             {label}

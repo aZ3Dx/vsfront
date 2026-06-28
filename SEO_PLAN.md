@@ -19,19 +19,22 @@ Servicios prioritarios: **Fotografía de Productos** y **Fotografía de Moda**
 
 > Sin estos pasos, ningún cambio de código va a rankear el sitio.
 
-- [ ] **Google Search Console** → https://search.google.com/search-console
+Realizado con mi cuenta, posteriormente será transferida.
+- [X] **Google Search Console** → https://search.google.com/search-console
   - Agregar propiedad → URL prefix → `https://visualstudio.pe`
   - Verificar con el método de archivo HTML (descargar y poner en `public/`)
   - Después: Sitemaps → enviar `https://visualstudio.pe/sitemap-index.xml`
   - Inspeccionar las URLs principales y solicitar indexación
 
-- [ ] **Google Business Profile** → https://business.google.com
+No realizado por tema de responsabilidades, debería hacerlo el cliente o yo con su cuenta.
+- [-] **Google Business Profile** → https://business.google.com
   - Crear ficha: "Visual Studio" → categoría "Fotógrafo" → Lima, Perú
   - Agregar teléfono, sitio web, descripción y al menos 10 fotos
   - Verificar por postal (demora ~5 días)
   - Pedir a cada cliente satisfecho que deje una reseña en Google
 
-- [ ] **Google Analytics 4** — conectar con Search Console si no está hecho
+Realizado con mi cuenta, posteriormente será transferida.
+- [X] **Google Analytics 4** — conectar con Search Console si no está hecho
 
 ---
 
@@ -39,7 +42,7 @@ Servicios prioritarios: **Fotografía de Productos** y **Fotografía de Moda**
 
 > Todos los posts tienen cuerpo placeholder y fecha futura → Google los ignora.
 
-- [ ] **`src/content/blogs/blog-1.mdx`** — "Cómo unas buenas fotos de producto pueden duplicar tus ventas online"
+- [X] **`src/content/blogs/fotografia-de-productos-para-ventas-online.mdx`** — "Cómo unas buenas fotos de producto pueden duplicar tus ventas online"
   - Cambiar fecha: `createdAt: '2025-04-10'`
   - Escribir artículo real de 600–800 palabras:
     - Por qué la foto es el primer factor de decisión en compras online
@@ -47,16 +50,20 @@ Servicios prioritarios: **Fotografía de Productos** y **Fotografía de Moda**
     - 5 tipos de fotos de producto (fondo blanco, lifestyle, detalle, escala, 360°)
     - CTA a `/servicios/fotos-productos`
   - Keywords objetivo: "fotografía de productos Lima", "fotos de productos para e-commerce Perú"
+  - **Bonus hecho:** `src/content.config.ts` actualizado (coverImageAlt, tags, updatedAt, featured, draft)
+  - **Bonus hecho:** `src/pages/blogs/[slug].astro` — prose CSS + coverImageAlt + max-w-3xl para legibilidad
 
-- [ ] **`src/content/blogs/blog-4.mdx`** — Cambiar tema a Fotografía de Moda
-  - Nuevo título: `'Fotografía de moda en Lima: guía para marcas y diseñadores'`
-  - Nueva categoría: `'Fotografía de moda'`
-  - Cambiar fecha: `createdAt: '2025-07-22'`
-  - Escribir artículo de 600–800 palabras:
+- [X] **`src/content/blogs/fotografia-de-moda-en-lima.mdx`** — "Fotografía de moda en Lima: guía para marcas y diseñadores" (antes `blog-4.mdx`, renombrado a slug SEO; placeholder "Fotografía social" eliminado)
+  - Categoría: `'Fotografía de moda'` · fecha: `createdAt: '2025-07-22'`
+  - Artículo real con identidad editorial (distinta del post de productos, que es data-driven):
     - Editorial vs comercial: diferencias y cuándo usar cada una
-    - Qué preparar para una sesión de moda (casting, looks, locación)
+    - Qué preparar para una sesión de moda (casting, looks, locación, equipo)
     - CTA a `/servicios/fotos-moda`
   - Keywords objetivo: "fotografía de moda Lima", "sesión de fotos de moda Lima"
+  - **Bonus hecho:** 2 componentes nuevos para el blog → `src/components/blog/PullQuote.astro` (cita editorial) y `src/components/blog/SplitCompare.astro` (comparación "X vs Y" en dos paneles, reemplaza al ComparisonSlider que implica before/after)
+  - **Bonus hecho:** prop `fit: 'cover' | 'contain'` (con blur-fill en vez de barras blancas) añadido a `SplitCompare.astro` y `ImageGrid.astro`
+  - **Bonus hecho:** limpieza de em dashes (`—`) en prosa/alt de ambos posts + convención de estilo documentada en `CLAUDE.md`
+  - Assets en CDN: `blogs/fdmel/` (cover, comercial, editorial, back1/front1, back2/front2)
 
 - [ ] **`src/content/blogs/blog-2.mdx`** — "5 claves para un evento corporativo exitoso en imágenes"
   - Cambiar fecha: `createdAt: '2025-05-28'`
