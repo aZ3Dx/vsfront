@@ -1,0 +1,54 @@
+---
+interface Panel {
+  label: string;
+  title: string;
+  description: string;
+  src?: string;
+  alt?: string;
+  fit?: 'cover' | 'contain';
+}
+
+interface Props {
+  left: Panel;
+  right: Panel;
+}
+
+const { left, right } = Astro.props;
+const panels = [left, right];
+---
+
+<div class="my-8 grid gap-4 sm:grid-cols-2">
+  {
+    panels.map((panel) => (
+      <div class="flex flex-col overflow-hidden rounded-lg border border-midnight/10 bg-beige1">
+        {panel.src && (
+          <div class="relative aspect-[4/3] w-full overflow-hidden">
+            {panel.fit === 'contain' && (
+              <img
+                class="absolute inset-0 h-full w-full scale-110 object-cover blur-xl"
+                src={panel.src}
+                alt=""
+                aria-hidden="true"
+              />
+            )}
+            <img
+              class:list={[
+                'relative h-full w-full',
+                panel.fit === 'contain' ? 'object-contain' : 'object-cover',
+              ]}
+              src={panel.src}
+              alt={panel.alt ?? panel.title}
+            />
+          </div>
+        )}
+        <div class="flex flex-col gap-2 p-5">
+          <span class="w-fit rounded-md bg-midnight px-2 py-1 text-xs font-medium tracking-wide text-white uppercase">
+            {panel.label}
+          </span>
+          <span class="font-heading text-lg font-semibold text-midnight">{panel.title}</span>
+          <span class="text-sm leading-relaxed text-midnight/70">{panel.description}</span>
+        </div>
+      </div>
+    ))
+  }
+</div>

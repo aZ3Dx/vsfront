@@ -54,3 +54,10 @@ VSFront is a static marketing website for Visual Studio, a photography and audio
 ## Language
 - All UI text is in **Spanish**. HTML lang is `es`.
 - No i18n library — single-language site.
+
+## Writing style (blog & site copy)
+- **Avoid the em dash (`—`) in prose.** It's correct but overused (a common tell of machine-written text). In Spanish, prefer commas, colons, or parentheses instead:
+  - Parenthetical aside → parentheses: `la luz (dirección, temperatura, intensidad)`
+  - Break / reveal → colon: `no son decoración: son tu fuerza de ventas`
+- **The one allowed em dash:** attributing a quote, e.g. the citation in `PullQuote.astro` (`— Autor`). That's the conventional typographic use, not a stylistic crutch.
+- Do not use the spaced ` — ` form (`space em-dash space`) anywhere in copy.
