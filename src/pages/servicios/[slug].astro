@@ -212,7 +212,7 @@ const jsonLd = [serviceSchema, breadcrumbSchema, ...(faqSchema ? [faqSchema] : [
     background-image: url("data:image/svg+xml,<svg id='patternId' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><defs><pattern id='a' patternUnits='userSpaceOnUse' width='40' height='40' patternTransform='scale(2) rotate(0)'><rect x='0' y='0' width='100%' height='100%' fill='%23ffffffff'/><path d='M20-5V5m0 30v10m20-30v10M0 15v10'  stroke-linecap='square' stroke-width='1' stroke='%23faeee0ff' fill='none'/><path d='M-5 40H5M-5 0H5m30 0h10M35 40h10M15 20h10'  stroke-linecap='square' stroke-width='1' stroke='%23faeee0ff' fill='none'/></pattern></defs><rect width='800%' height='800%' transform='translate(0,0)' fill='url(%23a)'/></svg>");
   }
 
-  .service-header-carousel {
+  :global(html.js) .service-header-carousel {
     opacity: 0;
   }
 
@@ -231,21 +231,21 @@ const jsonLd = [serviceSchema, breadcrumbSchema, ...(faqSchema ? [faqSchema] : [
     padding: 0 1px;
   }
 
-  .service-header {
+  :global(html.js) .service-header {
     transform: translateY(100px);
     opacity: 0;
   }
-  .point-service-container {
+  :global(html.js) .point-service-container {
     transform: translateX(-100px);
     opacity: 0;
   }
 
-  .service-image {
+  :global(html.js) .service-image {
     transform: translateX(-100px);
     opacity: 0;
   }
 
-  .portfolio-services-section {
+  :global(html.js) .portfolio-services-section {
     transform: translateY(100px);
     opacity: 0;
   }

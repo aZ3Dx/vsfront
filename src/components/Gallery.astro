@@ -33,6 +33,8 @@ console.log('Gallery');
                 : `https://assets.visualstudio.pe/services/fotos-moda/LIMA-SOFT-DIC-4296_thumb.webp`
             }
             alt={mediaFile.alt}
+            width="600"
+            height="800"
             class="h-full w-full object-cover opacity-0 transition-opacity duration-300"
             loading="lazy"
             onload="this.closest('div').classList.remove('animate-pulse'); this.closest('div').classList.remove('bg-gray-200'); this.classList.remove('opacity-0')"

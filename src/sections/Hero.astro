@@ -48,13 +48,13 @@ import { Image } from 'astro:assets';
       rgba(250, 238, 224, 0) 100%
     );
   }
-  .hero-title,
-  .hero-paragraph,
-  .hero-button {
+  :global(html.js) .hero-title,
+  :global(html.js) .hero-paragraph,
+  :global(html.js) .hero-button {
     opacity: 0;
     transform: translateY(40px);
   }
-  .gradient {
+  :global(html.js) .gradient {
     transform: translateY(100px);
   }
 </style>
