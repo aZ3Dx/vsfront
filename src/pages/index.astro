@@ -17,7 +17,7 @@ const organizationSchema = {
   '@type': 'Organization',
   name: SITE_CONFIG.name,
   url: SITE_CONFIG.url,
-  logo: `${SITE_CONFIG.url}/favicon.ico`,
+  logo: SITE_CONFIG.logo,
   sameAs: SITE_CONFIG.socialLinks,
   contactPoint: {
     '@type': 'ContactPoint',
@@ -30,14 +30,26 @@ const organizationSchema = {
 const localBusinessSchema = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
+  '@id': `${SITE_CONFIG.url}/#localbusiness`,
   name: SITE_CONFIG.name,
   url: SITE_CONFIG.url,
   telephone: SITE_CONFIG.phone,
   email: SITE_CONFIG.email,
+  priceRange: '$$',
+  image: SITE_CONFIG.defaultImage,
+  logo: SITE_CONFIG.logo,
+  sameAs: SITE_CONFIG.socialLinks,
+  areaServed: { '@type': 'City', name: 'Lima' },
   address: {
     '@type': 'PostalAddress',
     ...SITE_CONFIG.address,
   },
+  // Por ahora es negocio de área de servicio (local físico aún no listo, atención con cita).
+  // TODO cuando abra el local + exista el GBP (deben coincidir los datos):
+  //   - address: agregar streetAddress + postalCode reales.
+  //   - geo: { '@type': 'GeoCoordinates', latitude, longitude } del local.
+  //   - openingHoursSpecification: horario de atención (hoy es con cita, sin horario fijo).
+  //   - sameAs: añadir la URL del GBP.
   aggregateRating: {
     '@type': 'AggregateRating',
     ratingValue: avgRating.toFixed(1),

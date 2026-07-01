@@ -1,0 +1,81 @@
+---
+import Button from '@/components/Button.astro';
+import { SERVICES } from '@/consts/services';
+import { SITE_CONFIG } from '@/consts/siteConfig';
+import Layout from '@/layouts/Layout.astro';
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Inicio', item: SITE_CONFIG.url },
+    { '@type': 'ListItem', position: 2, name: 'Servicios', item: `${SITE_CONFIG.url}/servicios` },
+  ],
+};
+
+const itemListSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  itemListElement: SERVICES.map((service, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: service.name,
+    url: `${SITE_CONFIG.url}/servicios/${service.slug}`,
+  })),
+};
+---
+
+<Layout
+  title="Servicios de Fotografía y Producción Audiovisual en Lima"
+  description="Servicios de fotografía profesional y producción audiovisual en Lima, Perú: producto, moda, bodas, corporativo, familia y más. Conoce cada servicio de Visual Studio."
+  jsonLd={[breadcrumbSchema, itemListSchema]}
+>
+  <main class="pt-20 lg:pt-30">
+    <section class="px-4 py-6 lg:py-10">
+      <h1 class="text-center text-2xl font-semibold lg:text-4xl">
+        Servicios de Fotografía en Lima
+      </h1>
+      <p class="mt-4 text-center text-lg text-balance lg:mx-auto lg:max-w-3xl lg:text-xl">
+        En <span class="font-semibold">Visual Studio</span> ofrecemos fotografía profesional y producción
+        audiovisual en Lima, Perú. Conoce cada servicio y descubre cómo damos vida a las ideas de tu
+        marca.
+      </p>
+    </section>
+
+    <section class="px-4 pb-16 lg:pb-24">
+      <ul class="mx-auto grid max-w-6xl grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+        {
+          SERVICES.map((service) => (
+            <li class="overflow-hidden rounded-xl border border-black/10 transition-shadow hover:shadow-lg">
+              <a href={`/servicios/${service.slug}`} class="group flex h-full flex-col">
+                <div class="h-52 overflow-hidden">
+                  <img
+                    class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    src={`${service.image.url}_thumb.webp`}
+                    alt={`${service.name} en Lima, Visual Studio`}
+                    loading="lazy"
+                  />
+                </div>
+                <div class="flex flex-1 flex-col gap-2 p-4">
+                  <h2 class="text-xl font-semibold">{service.name}</h2>
+                  <p class="text-balance text-black/70">{service.description}</p>
+                  <span class="mt-auto pt-2 font-semibold text-midnight underline">
+                    Conocer más
+                  </span>
+                </div>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+
+    <section class="flex flex-col items-center gap-4 px-4 pb-20 text-center">
+      <h2 class="text-xl font-semibold lg:text-2xl">¿Tienes un proyecto en mente?</h2>
+      <p class="text-balance lg:max-w-2xl">
+        Cuéntanos qué necesitas y te ayudamos a elegir el servicio ideal para tu marca.
+      </p>
+      <Button text="Contáctanos" type="anchor" href="/contactanos" style="secondary" />
+    </section>
+  </main>
+</Layout>

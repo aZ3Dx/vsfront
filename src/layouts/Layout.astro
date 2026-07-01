@@ -16,6 +16,11 @@ const seoProps = Astro.props;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Marca que JS está disponible ANTES del primer paint, para poder ocultar
+         solo-con-JS el contenido animado (evita CLS/LCP y funciona sin JS). -->
+    <script is:inline>
+      document.documentElement.classList.add('js');
+    </script>
     <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
     <link rel="preconnect" href="https://assets.visualstudio.pe" />
     <meta name="generator" content={Astro.generator} />

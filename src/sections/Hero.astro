@@ -16,7 +16,7 @@ import { Image } from 'astro:assets';
     <h1
       class="hero-title text-center text-2xl font-semibold text-white uppercase lg:mx-auto lg:max-w-3xl lg:text-5xl lg:leading-snug lg:font-bold"
     >
-      Contenido audiovisual diseñado para vender, emocionar y destacar
+      Fotografía y producción audiovisual en Lima para vender, emocionar y destacar
     </h1>
     <p
       class="hero-paragraph text-center text-xl text-white lg:mx-auto lg:max-w-4xl lg:text-2xl lg:leading-normal"
@@ -48,13 +48,13 @@ import { Image } from 'astro:assets';
       rgba(250, 238, 224, 0) 100%
     );
   }
-  .hero-title,
-  .hero-paragraph,
-  .hero-button {
+  :global(html.js) .hero-title,
+  :global(html.js) .hero-paragraph,
+  :global(html.js) .hero-button {
     opacity: 0;
     transform: translateY(40px);
   }
-  .gradient {
+  :global(html.js) .gradient {
     transform: translateY(100px);
   }
 </style>

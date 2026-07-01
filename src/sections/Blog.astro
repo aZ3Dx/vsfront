@@ -4,7 +4,9 @@ import Button from '@/components/Button.astro';
 import type { Blog } from '@/types/blog';
 import { getCollection } from 'astro:content';
 
-const blogs: Blog[] = await getCollection('blogs');
+const blogs: Blog[] = (await getCollection('blogs', ({ data }) => !data.draft)).sort(
+  (a, b) => new Date(b.data.createdAt).getTime() - new Date(a.data.createdAt).getTime(),
+);
 ---
 
 <section class="relative py-20 lg:py-30">

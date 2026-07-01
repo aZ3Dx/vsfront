@@ -5,7 +5,9 @@ import Layout from '@/layouts/Layout.astro';
 import type { Blog } from '@/types/blog';
 import { getCollection } from 'astro:content';
 
-const blogs: Blog[] = await getCollection('blogs');
+const blogs: Blog[] = (await getCollection('blogs', ({ data }) => !data.draft)).sort(
+  (a, b) => new Date(b.data.createdAt).getTime() - new Date(a.data.createdAt).getTime(),
+);
 
 const breadcrumbSchema = {
   '@context': 'https://schema.org',
@@ -32,7 +34,7 @@ const breadcrumbSchema = {
     </section>
     <section class="mx-auto max-w-xl py-4">
       {
-        blogs.slice(2, 4).map((blog) => (
+        blogs.map((blog) => (
           <div class="p-4">
             <BlogCard blog={blog} />
           </div>
