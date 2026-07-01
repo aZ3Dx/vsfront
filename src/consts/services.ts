@@ -58,6 +58,30 @@ export const SERVICES: Service[] = addCarouselImages([
           'Entregamos fotografías de alta calidad, ideales para álbumes, redes sociales e impresiones de gran formato.',
       },
     ],
+    seoDescription:
+      'Fotografía de bodas en Lima con estilo natural y elegante. Cobertura completa de tu gran día, desde los preparativos hasta la fiesta. Cotiza con Visual Studio.',
+    about: [
+      'El día de tu boda pasa en un instante, pero las fotografías se quedan para siempre. Nuestro servicio de fotografía de bodas en Lima está pensado para que puedas revivir cada emoción tal como la sentiste: la risa nerviosa antes de entrar, la mirada del reencuentro en el altar, el abrazo de tu familia y la energía de la fiesta. Trabajamos con un estilo natural, elegante y atemporal, sin poses forzadas ni momentos artificiales.',
+      'Documentamos tu boda de principio a fin. Empezamos con los preparativos de los novios, seguimos con la ceremonia, la sesión de pareja y la recepción, cuidando tanto los grandes momentos como los detalles que hacen única tu celebración. Nuestro enfoque combina el reportaje documental (capturar lo que sucede de forma espontánea) con retratos cuidados que resaltan la conexión entre ustedes y con sus seres queridos.',
+      'Cada boda se entrega con edición profesional y en alta calidad, lista para tu álbum, tus redes sociales o impresiones de gran formato. Si te casas en Lima o en provincia, conversamos tu historia, la locación y el estilo que buscas para armar una cobertura a la medida. Reserva tu fecha con anticipación: las mejores fechas se agendan con meses de anticipación.',
+    ],
+    faqs: [
+      {
+        question: '¿Cuánto cuesta un servicio de fotografía de bodas en Lima?',
+        answer:
+          'El precio depende de las horas de cobertura, la cantidad de fotógrafos, si incluye sesión previa y el tipo de entrega (digital, álbum, impresiones). Armamos paquetes según el tamaño y el estilo de tu boda. Escríbenos por WhatsApp con tu fecha y te enviamos una cotización sin compromiso.',
+      },
+      {
+        question: '¿La cobertura incluye los preparativos y la fiesta?',
+        answer:
+          'Sí. Nuestra cobertura completa documenta todo el día: los preparativos de los novios, la ceremonia, la sesión de pareja y la recepción. En la cotización definimos las horas de cobertura que necesitas según el programa de tu boda.',
+      },
+      {
+        question: '¿Con cuánta anticipación debo reservar la fecha?',
+        answer:
+          'Recomendamos reservar con varios meses de anticipación, sobre todo para fechas de temporada alta (fines de semana y meses de mayor demanda). Apenas tengas la fecha confirmada, escríbenos para asegurar tu día en nuestra agenda.',
+      },
+    ],
     videos: ['BRiH4IwjqbA'],
     image: {
       url: '',
@@ -500,6 +524,35 @@ export const SERVICES: Service[] = addCarouselImages([
         description: 'Resaltamos la textura, color y atributos únicos de cada producto.',
       },
     ],
+    seoDescription:
+      'Fotografía profesional de productos en Lima para e-commerce, catálogos y redes sociales. Imágenes que venden: fondo blanco, lifestyle y detalle. Cotiza gratis.',
+    about: [
+      'La fotografía de productos es la primera impresión que tu cliente recibe de tu marca. En una tienda online no puede tocar, oler ni probar lo que vendes: solo tiene la imagen. Por eso una foto profesional no es un lujo, es tu principal herramienta de ventas. En Visual Studio producimos fotografía de productos en Lima pensada para convertir visitas en compras, con la calidad que exigen plataformas como tu propia web, Mercado Libre, Shopify e Instagram.',
+      'Trabajamos distintos estilos según lo que necesite cada producto. La toma en fondo blanco es ideal para catálogos y marketplaces (limpia, uniforme y sin distracciones). La fotografía lifestyle muestra el producto en uso y en contexto, ideal para redes sociales y campañas. Las tomas de detalle resaltan texturas, materiales y acabados, y las fotos de escala ayudan a que el cliente entienda el tamaño real. Definimos juntos la combinación que mejor comunica el valor de tu marca.',
+      'Cada sesión incluye dirección de iluminación, composición y una edición cuidada (recorte, color fiel y limpieza de fondo) para que las imágenes lleguen listas para publicar. Entregamos los archivos en los formatos y proporciones que cada canal necesita, de modo que puedas cargarlos sin recortes ni pérdida de calidad. Si tienes un e-commerce, un catálogo o un lanzamiento en puerta, te ayudamos a que tus productos luzcan tan bien como merecen.',
+    ],
+    faqs: [
+      {
+        question: '¿Cuánto cuesta una sesión de fotografía de productos en Lima?',
+        answer:
+          'El precio depende de la cantidad de productos, el tipo de tomas (fondo blanco, lifestyle o detalle) y el nivel de edición que necesites. Armamos un paquete a la medida de tu marca. Escríbenos por WhatsApp y te enviamos una cotización gratuita sin compromiso.',
+      },
+      {
+        question: '¿Cuántas fotos incluye la sesión?',
+        answer:
+          'La cantidad de imágenes finales se define según el paquete y el número de productos. En la cotización acordamos cuántas tomas por producto necesitas para tu catálogo, tienda online o redes, para que sepas exactamente qué vas a recibir.',
+      },
+      {
+        question: '¿Necesito preparar mis productos antes de la sesión?',
+        answer:
+          'Sí. Recomendamos que los productos lleguen limpios, completos y en buen estado (sin polvo, huellas ni etiquetas provisionales). Si tu producto necesita montaje, styling o accesorios, coordinamos los detalles antes de la sesión para aprovechar el tiempo al máximo.',
+      },
+      {
+        question: '¿Las fotos sirven para Mercado Libre, Shopify y redes sociales?',
+        answer:
+          'Sí. Entregamos las imágenes en los formatos y proporciones que cada plataforma requiere, de modo que puedas subirlas directamente a tu e-commerce, marketplace o redes sin recortes ni pérdida de calidad.',
+      },
+    ],
     image: {
       url: '',
       type: 'image',
@@ -911,6 +964,30 @@ export const SERVICES: Service[] = addCarouselImages([
         title: 'Resultados listos para catálogos y e-commerce',
         description:
           'Entregamos contenido visual optimizado para plataformas digitales, lookbooks y publicidades.',
+      },
+    ],
+    seoDescription:
+      'Fotografía de moda en Lima para marcas, diseñadores y tiendas. Lookbooks, campañas y contenido editorial con dirección creativa. Estudio Visual Studio.',
+    about: [
+      'La fotografía de moda es la forma en que tu marca de ropa comunica quién es. No se trata solo de mostrar una prenda, sino de transmitir una actitud, un estilo y una historia que conecten con tu público. En Visual Studio producimos sesiones de fotografía de moda en Lima para marcas, diseñadores y tiendas que quieren que sus colecciones luzcan como merecen, con dirección creativa de principio a fin.',
+      'Distinguimos entre la fotografía comercial y la editorial porque cada una cumple un objetivo distinto. La comercial prioriza la claridad de la prenda: colores fieles, calce y detalle, ideal para catálogos, lookbooks y e-commerce. La editorial construye un mundo alrededor de la colección (concepto, locación, estilismo y actitud), pensada para campañas, revistas y contenido de marca. En la cotización definimos cuál se ajusta mejor a lo que necesitas.',
+      'Una buena sesión de moda se planifica: casting, selección de looks, locación, equipo de estilismo y una dirección clara de poses y luz. Nos encargamos de guiar cada detalle para que las prendas se vean bien y la imagen final tenga identidad. Entregamos el material editado y optimizado para el canal donde vas a publicarlo, ya sea tu tienda online, tus redes o una campaña. Si tienes una colección nueva o quieres renovar la imagen de tu marca, te ayudamos a contarla con fuerza.',
+    ],
+    faqs: [
+      {
+        question: '¿Cómo se cotiza una sesión de fotografía de moda?',
+        answer:
+          'La cotización depende del tipo de sesión (comercial o editorial), la cantidad de looks, la locación y el equipo necesario (modelo, estilismo, maquillaje). Conversamos tu proyecto, definimos el alcance y te enviamos una propuesta a medida. Escríbenos por WhatsApp para empezar.',
+      },
+      {
+        question: '¿Incluyen modelo y maquilladora?',
+        answer:
+          'Podemos coordinar modelo, maquillaje y estilismo según las necesidades de tu proyecto. Algunas marcas traen su propio equipo y otras prefieren que nos encarguemos de todo. Lo definimos juntos en la cotización para armar la producción que mejor se ajuste a tu colección y presupuesto.',
+      },
+      {
+        question: '¿Cuántos looks se pueden hacer en una sesión?',
+        answer:
+          'La cantidad de looks depende de la duración de la sesión y de la complejidad de cada cambio (prendas, maquillaje y locación). En la planificación previa acordamos cuántos looks entran para que aproveches al máximo el tiempo de producción.',
       },
     ],
     image: {
@@ -1382,6 +1459,30 @@ export const SERVICES: Service[] = addCarouselImages([
         description: 'Imágenes ideales para web, presentaciones y redes sociales.',
       },
     ],
+    seoDescription:
+      'Fotografía de eventos corporativos y retratos empresariales en Lima. Conferencias, lanzamientos y fotos de equipo que proyectan profesionalismo. Visual Studio.',
+    about: [
+      'La imagen de tu empresa comunica confianza antes de que digas una palabra. Nuestro servicio de fotografía corporativa y de eventos en Lima ayuda a marcas y empresas a proyectar profesionalismo en cada canal: tu web, tus perfiles de LinkedIn, tus presentaciones comerciales y tus notas de prensa. Capturamos la personalidad y los valores de tu organización con un enfoque cuidado y consistente con tu identidad de marca.',
+      'Cubrimos conferencias, congresos, lanzamientos de producto, capacitaciones, aniversarios y eventos de empresa, documentando tanto los momentos clave como la interacción entre los asistentes. También realizamos retratos corporativos y fotos de equipo (headshots) uniformes para toda la plantilla, ideales para directorios, perfiles profesionales y material institucional. Trabajamos con discreción para no interrumpir el desarrollo de tu evento.',
+      'Entendemos que muchos eventos corporativos necesitan material rápido para publicar en redes o enviar a prensa. Por eso coordinamos tiempos de entrega ágiles y adaptamos los formatos a cada uso. Atendemos eventos en Lima y sus distritos. Cuéntanos la fecha, el lugar y el objetivo de tu evento y armamos una cobertura a la medida de tu empresa.',
+    ],
+    faqs: [
+      {
+        question: '¿Qué tipo de eventos corporativos cubren?',
+        answer:
+          'Cubrimos conferencias, congresos, lanzamientos de producto, capacitaciones, aniversarios, cenas de empresa y activaciones de marca, además de retratos corporativos y fotos de equipo. Si tienes un formato distinto, cuéntanos y evaluamos cómo cubrirlo.',
+      },
+      {
+        question: '¿Ofrecen retratos de equipo y headshots profesionales?',
+        answer:
+          'Sí. Realizamos sesiones de retratos corporativos con un estilo uniforme para todo el equipo, ideales para perfiles de LinkedIn, la web de la empresa y material institucional. Podemos hacerlos en tu oficina o en la locación que definamos.',
+      },
+      {
+        question: '¿Pueden cubrir eventos en cualquier distrito de Lima?',
+        answer:
+          'Sí, atendemos eventos corporativos en Lima y sus distritos. Coordinamos con anticipación la logística, los horarios y los puntos clave a cubrir para asegurar una cobertura completa el día del evento.',
+      },
+    ],
     videos: ['5ZC-84NjceA', '7swe52Y9SU0', 'lV0CH0JtnXA', 'x6BQ68IowkA'],
     image: {
       url: '',
@@ -1764,6 +1865,30 @@ export const SERVICES: Service[] = addCarouselImages([
         title: 'Recuerdos llenos de emoción',
         description:
           'Imágenes cálidas y cuidadas, ideales para álbumes, impresiones o compartir en tus redes sociales.',
+      },
+    ],
+    seoDescription:
+      'Sesiones de fotografía familiar en Lima: familias, parejas, niños, embarazo y bebés. Recuerdos naturales y emotivos. Reserva tu sesión con Visual Studio.',
+    about: [
+      'Las fotos familiares son de esas cosas que agradeces años después. Nuestras sesiones de fotografía familiar en Lima capturan momentos reales, espontáneos y llenos de emoción: el juego con tus hijos, la complicidad en pareja, la espera de un bebé o una celebración importante. Buscamos que cada imagen refleje quiénes son ustedes, con un estilo natural y cálido, lejos de las poses rígidas de estudio tradicional.',
+      'Acompañamos cada etapa de la historia familiar. Realizamos sesiones de embarazo (maternidad), recién nacidos y bebés, niños, cumpleaños, bautizos, sesiones de pareja y retratos personales. También documentamos a las mascotas, que muchas veces son parte esencial de la familia. Adaptamos el ritmo de la sesión a la edad y comodidad de los más pequeños, para que todos disfruten el proceso y las fotos salgan genuinas.',
+      'Las sesiones se realizan en la locación que elijas: exteriores, tu hogar o el lugar que tenga un significado especial para ustedes (lo coordinamos al reservar). Entregamos imágenes editadas con cuidado, ideales para álbumes, impresiones o compartir en redes. Escríbenos y armamos juntos una sesión pensada para tu familia.',
+    ],
+    faqs: [
+      {
+        question: '¿Cuánto dura una sesión de fotografía familiar?',
+        answer:
+          'La duración varía según el tipo de sesión y la cantidad de personas, pero la mayoría de sesiones familiares dura entre una y dos horas. Cuando hay niños pequeños o bebés, manejamos los tiempos con flexibilidad para respetar sus ritmos y lograr fotos naturales.',
+      },
+      {
+        question: '¿Dónde se realizan las sesiones?',
+        answer:
+          'Realizamos las sesiones en la locación que prefieras: exteriores (parques, playa, lugares al aire libre), tu propia casa o un sitio con valor sentimental para tu familia. Definimos el lugar juntos al momento de reservar según el estilo que buscas.',
+      },
+      {
+        question: '¿Qué tipos de sesiones familiares ofrecen?',
+        answer:
+          'Ofrecemos sesiones de embarazo, recién nacidos y bebés, niños, cumpleaños, bautizos, parejas, retratos personales y sesiones con mascotas. Si tienes una idea o una ocasión especial en mente, cuéntanos y la adaptamos a tu historia.',
       },
     ],
     image: {

@@ -6,6 +6,11 @@ type Point = {
   description: string;
 };
 
+export type ServiceFaq = {
+  question: string;
+  answer: string;
+};
+
 export type Service = {
   slug: string;
   name: string;
@@ -16,4 +21,10 @@ export type Service = {
   image: MediaFile;
   allMediaFiles: MediaFile[];
   carouselMediaFiles: MediaFile[];
+  /** Meta description optimizada para SEO (150-160 car.). Fallback: description. */
+  seoDescription?: string;
+  /** Párrafos de texto extenso para dar profundidad de contenido (SEO). */
+  about?: string[];
+  /** Preguntas frecuentes. Se renderizan como sección + schema FAQPage. */
+  faqs?: ServiceFaq[];
 };

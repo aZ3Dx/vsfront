@@ -45,13 +45,40 @@ const breadcrumbSchema = {
     { '@type': 'ListItem', position: 3, name: service.name, item: `${SITE_CONFIG.url}/servicios/${service.slug}` },
   ],
 };
+
+const faqSchema =
+  service.faqs && service.faqs.length > 0
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: service.faqs.map((faq) => ({
+          '@type': 'Question',
+          name: faq.question,
+          acceptedAnswer: { '@type': 'Answer', text: faq.answer },
+        })),
+      }
+    : null;
+
+// VideoObject por cada video de YouTube. Nota: falta `uploadDate` (dato real del
+// canal); agregarlo cuando se conozca para ser elegible a rich results de video.
+const videoSchemas = (service.videos ?? []).map((videoId) => ({
+  '@context': 'https://schema.org',
+  '@type': 'VideoObject',
+  name: `${service.name} | Visual Studio`,
+  description: service.description,
+  thumbnailUrl: `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`,
+  contentUrl: `https://www.youtube.com/watch?v=${videoId}`,
+  embedUrl: `https://www.youtube.com/embed/${videoId}`,
+}));
+
+const jsonLd = [serviceSchema, breadcrumbSchema, ...(faqSchema ? [faqSchema] : []), ...videoSchemas];
 ---
 
 <Layout
   title={`${service.name} en Lima`}
-  description={service.description}
+  description={service.seoDescription ?? service.description}
   image={ogImage}
-  jsonLd={[serviceSchema, breadcrumbSchema]}
+  jsonLd={jsonLd}
 >
   <main class="pt-20 lg:pt-30">
     <section>
@@ -102,6 +129,27 @@ const breadcrumbSchema = {
       </div>
     </section>
     {
+      service.about && service.about.length > 0 && (
+        <section class="px-6 py-10">
+          <div class="mx-auto max-w-3xl">
+            <h2 class="mb-6 text-2xl font-semibold">{service.name} en Lima</h2>
+            <p class="mb-4 leading-relaxed text-balance">{service.about[0]}</p>
+            {service.about.length > 1 && (
+              <details class="group">
+                <summary class="mb-4 inline-flex cursor-pointer list-none items-center gap-1 font-semibold text-midnight underline">
+                  <span class="group-open:hidden">Leer más</span>
+                  <span class="hidden group-open:inline">Leer menos</span>
+                </summary>
+                {service.about.slice(1).map((paragraph) => (
+                  <p class="mb-4 leading-relaxed text-balance">{paragraph}</p>
+                ))}
+              </details>
+            )}
+          </div>
+        </section>
+      )
+    }
+    {
       service.videos && service.videos.length > 0 && (
         <section class="px-6 py-10">
           <h3 class="mb-8 text-center text-2xl font-semibold">Videos</h3>
@@ -136,6 +184,26 @@ const breadcrumbSchema = {
         style="primary"
       />
     </section>
+    {
+      service.faqs && service.faqs.length > 0 && (
+        <section class="px-6 py-10">
+          <div class="mx-auto max-w-3xl">
+            <h2 class="mb-8 text-center text-2xl font-semibold">Preguntas frecuentes</h2>
+            <div class="flex flex-col gap-3">
+              {service.faqs.map((faq) => (
+                <details class="group rounded-lg border border-black/10 p-4">
+                  <summary class="flex cursor-pointer items-center justify-between gap-4 font-semibold">
+                    {faq.question}
+                    <span class="transition-transform group-open:rotate-45">+</span>
+                  </summary>
+                  <p class="mt-3 leading-relaxed text-black/80">{faq.answer}</p>
+                </details>
+              ))}
+            </div>
+          </div>
+        </section>
+      )
+    }
   </main>
 </Layout>
 
